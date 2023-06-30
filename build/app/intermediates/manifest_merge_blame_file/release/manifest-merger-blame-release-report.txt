@@ -1,0 +1,171 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.dominiotech.eco2biz"
+4    android:versionCode="4"
+5    android:versionName="1.0.4" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:4:9-70
+11-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:4:26-68
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:5:9-84
+12-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:5:26-81
+13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+13-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:6:9-85
+13-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:6:26-82
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+14-->[:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\release\AndroidManifest.xml:7:5-77
+14-->[:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\release\AndroidManifest.xml:7:22-74
+15    <uses-permission android:name="android.permission.CAMERA" />
+15-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:9:5-65
+15-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:9:22-62
+16
+17    <uses-feature android:name="android.hardware.camera" />
+17-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:11:5-60
+17-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:11:19-57
+18
+19    <uses-permission android:name="android.permission.FLASHLIGHT" />
+19-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:13:5-69
+19-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:13:22-66
+20
+21    <application
+22        android:name="android.app.Application"
+22-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:12:9-42
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.8.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1fe78b6b975cf3d4e1242d7cf8ef21b2\core-1.8.0\AndroidManifest.xml:24:18-86
+24        android:icon="@mipmap/ic_launcher"
+24-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:13:9-43
+25        android:label="Eco2Biz"
+25-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:11:9-32
+26        android:largeHeap="true"
+26-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:16:9-33
+27        android:theme="@style/Theme.AppCompat.NoActionBar" >
+27-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:17:9-59
+28        <activity
+28-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:14:9-34:20
+29            android:name="com.dominiotech.eco2biz.MainActivity"
+29-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:15:13-41
+30            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+30-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:19:13-163
+31            android:exported="true"
+31-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:16:13-36
+32            android:hardwareAccelerated="true"
+32-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:20:13-47
+33            android:launchMode="singleTop"
+33-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:17:13-43
+34            android:theme="@style/LaunchTheme"
+34-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:18:13-47
+35            android:windowSoftInputMode="adjustResize" >
+35-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:21:13-55
+36
+37            <!--
+38                 Specifies an Android theme to apply to this Activity as soon as
+39                 the Android process has started. This theme is visible to the user
+40                 while the Flutter UI initializes. After that, this theme continues
+41                 to determine the Window background behind the Flutter UI.
+42            -->
+43            <meta-data
+43-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:26:13-29:17
+44                android:name="io.flutter.embedding.android.NormalTheme"
+44-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:27:15-70
+45                android:resource="@style/NormalTheme" />
+45-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:28:15-52
+46
+47            <intent-filter>
+47-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:30:13-33:29
+48                <action android:name="android.intent.action.MAIN" />
+48-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:31:17-68
+48-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:31:25-66
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:32:17-76
+50-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:32:27-74
+51            </intent-filter>
+52        </activity>
+53        <!--
+54             Don't delete the meta-data below.
+55             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+56        -->
+57        <meta-data
+57-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:37:9-39:33
+58            android:name="flutterEmbedding"
+58-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:38:13-44
+59            android:value="2" />
+59-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:39:13-30
+60        <meta-data
+60-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:40:9-42:70
+61            android:name="com.google.android.geo.API_KEY"
+61-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:41:13-58
+62            android:value="AIzaSyCWpwReEJ9RBKmnS98UnovB99qQMwX-xpE" />
+62-->C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:42:13-68
+63
+64        <service
+64-->[:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\release\AndroidManifest.xml:10:9-14:56
+65            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+65-->[:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\release\AndroidManifest.xml:11:13-77
+66            android:enabled="true"
+66-->[:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\release\AndroidManifest.xml:12:13-35
+67            android:exported="false"
+67-->[:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\release\AndroidManifest.xml:13:13-37
+68            android:foregroundServiceType="location" />
+68-->[:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\release\AndroidManifest.xml:14:13-53
+69
+70        <activity android:name="com.amolg.flutterbarcodescanner.BarcodeCaptureActivity" />
+70-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:18:9-91
+70-->[:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\release\AndroidManifest.xml:18:19-88
+71
+72        <provider
+72-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:8:9-16:20
+73            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+73-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:9:13-82
+74            android:authorities="com.dominiotech.eco2biz.flutter.image_provider"
+74-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:10:13-74
+75            android:exported="false"
+75-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:11:13-37
+76            android:grantUriPermissions="true" >
+76-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:12:13-47
+77            <meta-data
+77-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:13:13-15:75
+78                android:name="android.support.FILE_PROVIDER_PATHS"
+78-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:14:17-67
+79                android:resource="@xml/flutter_image_picker_file_paths" />
+79-->[:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\release\AndroidManifest.xml:15:17-72
+80        </provider>
+81
+82        <uses-library
+82-->[androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+83            android:name="androidx.window.extensions"
+83-->[androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+84            android:required="false" />
+84-->[androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+85        <uses-library
+85-->[androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+86            android:name="androidx.window.sidecar"
+86-->[androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+87            android:required="false" />
+87-->[androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+88
+89        <activity
+89-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:23:9-26:75
+90            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+90-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:24:13-79
+91            android:exported="false"
+91-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:25:13-37
+92            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+92-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:26:13-72
+93
+94        <meta-data
+94-->[com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:23:9-25:69
+95            android:name="com.google.android.gms.version"
+95-->[com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:24:13-58
+96            android:value="@integer/google_play_services_version" />
+96-->[com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:25:13-66
+97    </application>
+98
+99</manifest>

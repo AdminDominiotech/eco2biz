@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-background-location/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-background-location/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-background-location/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile_safe2bizapp_connectivity/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile_safe2bizapp_connectivity/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile_safe2bizapp_connectivity/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-core/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-core/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-core/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-web-view/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-web-view/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-web-view/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-permission/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-permission/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/mobile-safe2bizapp-shared/mobile-safe2bizapp-permission/.pub" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Flutter Plugins" level="project" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
+  </component>
+</module>

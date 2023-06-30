@@ -1,0 +1,4 @@
+com/fluttercandies/flutter_image_compress/BuildConfig.java
+ com.fluttercandies.flutter_image_compress.BuildConfig
+com/fluttercandies/flutter_image_compress/exif/ExifKeeper.java
+ com.fluttercandies.flutter_image_compress.exif.ExifKeeper

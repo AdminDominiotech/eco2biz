@@ -1,0 +1,360 @@
+-- Merging decision tree log ---
+application
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:10:4-43:19
+MERGED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4c7f86be3f46f01cb051adbce019d2d4\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4c7f86be3f46f01cb051adbce019d2d4\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7284d4e2077638dc82657a8db86b77ac\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7284d4e2077638dc82657a8db86b77ac\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b93afec483fa0d4a7582a06140aa36e6\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b93afec483fa0d4a7582a06140aa36e6\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-vision:20.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\85233da6a6cd60f34cc0509007d1c972\jetified-play-services-vision-20.1.3\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:20.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\85233da6a6cd60f34cc0509007d1c972\jetified-play-services-vision-20.1.3\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:19.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dd0c8d314b3dc3d7f726d2d1e4f95d3d\jetified-play-services-vision-common-19.1.3\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:19.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dd0c8d314b3dc3d7f726d2d1e4f95d3d\jetified-play-services-vision-common-19.1.3\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8182e812cd5f76507d2a6e20ab675b77\jetified-play-services-clearcut-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8182e812cd5f76507d2a6e20ab675b77\jetified-play-services-clearcut-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\48aee05b8a507f9a0510f9291804acb0\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\48aee05b8a507f9a0510f9291804acb0\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\116365854135cf75961330a0255b309a\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\116365854135cf75961330a0255b309a\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fce6b87ad3f95ec02fc8c78eef616d6b\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fce6b87ad3f95ec02fc8c78eef616d6b\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.8.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1fe78b6b975cf3d4e1242d7cf8ef21b2\core-1.8.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.8.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1fe78b6b975cf3d4e1242d7cf8ef21b2\core-1.8.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\f5eafe47b6744b9d6fce9d2f508593c5\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\f5eafe47b6744b9d6fce9d2f508593c5\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.8.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1fe78b6b975cf3d4e1242d7cf8ef21b2\core-1.8.0\AndroidManifest.xml:24:18-86
+	android:largeHeap
+		ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-33
+	android:theme
+		ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-59
+	android:name
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+manifest
+ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:1-44:12
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:1-44:12
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:1-44:12
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:1-44:12
+MERGED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:1-44:12
+MERGED from [:shared_preferences_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
+MERGED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:flutter_plugin_android_lifecycle] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:device_info_plus] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\device_info_plus\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_image_compress] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_image_compress\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
+MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4ff8182d1b777fa9b1c9b82a6b221980\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4c7f86be3f46f01cb051adbce019d2d4\jetified-play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7284d4e2077638dc82657a8db86b77ac\material-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b93afec483fa0d4a7582a06140aa36e6\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fa2683c40fbae71f2f0c12c9bc0d196f\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b9cc393307c80ba3cd465d8ffb39e104\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dc057511924cf93ade0589590f0760fb\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-vision:20.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\85233da6a6cd60f34cc0509007d1c972\jetified-play-services-vision-20.1.3\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-vision-common:19.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dd0c8d314b3dc3d7f726d2d1e4f95d3d\jetified-play-services-vision-common-19.1.3\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8182e812cd5f76507d2a6e20ab675b77\jetified-play-services-clearcut-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\d04f7acb2d79238c9e0e23fe87f5ef48\jetified-play-services-flags-17.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\48aee05b8a507f9a0510f9291804acb0\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\116365854135cf75961330a0255b309a\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fce6b87ad3f95ec02fc8c78eef616d6b\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\816e6b42c09a1b6e597cc572f3a17589\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\a9cb9b0cd36bb58afe9e9e4d3655ae85\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\702f506b0aea781a2defd5fda9323547\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\376caf584ad34a5ed188ae2d2a9509f4\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8fdfe0ed4f49f237fce4b8eb2bbe90db\media-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\69125072a8c07d9882d3e098bd32da01\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7a098e640199185c6916ae526be82686\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\afbda0ae7b3cbc8cbe63572945c673a9\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\71b342582789c16bd91633ba755cdfb5\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\308285afa8a1445bd0945e875f565fcf\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\0e3399cf646f74c4459d40f3000a29cf\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\e55a4fa628324a33d327f8ada4a51070\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\2799de8c94d7928f032a0c93fe6e835e\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\80b30caf82cd8493a14c0caf3cb95e9f\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\a0960204ee639b947b6d39c5085252cb\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\effe83b63d54f30fddb05cbef09afa78\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8fd8bbd611262ac5cb6b577cf553038d\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\cce015a5a66879e665a46a90eefce845\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\9d6c1aed2346409884a8510f6db7ed16\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.8.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1fe78b6b975cf3d4e1242d7cf8ef21b2\core-1.8.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1351cad4cc53f0b53b0fde385d7e53b5\exifinterface-1.3.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.heifwriter:heifwriter:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\867af636cff2215c04caeff9edd8457c\heifwriter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c41730030e4f8e702000cd1ebee6ce9f\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4ae8016e527e21cd566dc68ba974ca22\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\60ee73d075e9970bb5b6d6847b748e33\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\adefea34a50b9bccfc4f9e2883688132\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\f5eafe47b6744b9d6fce9d2f508593c5\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fb00dd5d74f4518948e74407745a961e\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\25f49062eb1ed4e1e1113ea3f2d165b9\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1d829511e1f78dad3821b230ef9ec7fa\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c56b5f7dcb3430ce685ec699ea6f3ad3\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\84bea709552a2823ea56d5e1f18512f1\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6abc46d96e2b85ce69cad917aef94b95\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\603454890a0e26124b4bc2101c616db2\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\bf5b96e9abd2aed653efd48f3521888d\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\e773f566621ffaa15040280be419d16a\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\5a166ab4c162403512e361cf1ee00169\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:1-44:12
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:2:5-51
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:2:5-51
+	android:versionCode
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:1-44:12
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:4:9-70
+MERGED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:4:9-70
+MERGED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:4:9-70
+	android:name
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:4:26-68
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:5:9-84
+	android:name
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:5:26-81
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:6:9-85
+	android:name
+		ADDED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml:6:26-82
+uses-sdk
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+MERGED from [:shared_preferences_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:device_info_plus] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\device_info_plus\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:device_info_plus] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\device_info_plus\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_image_compress] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_image_compress\intermediates\library_manifest\debug\AndroidManifest.xml:6:5-8:55
+MERGED from [:flutter_image_compress] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_image_compress\intermediates\library_manifest\debug\AndroidManifest.xml:6:5-8:55
+MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4ff8182d1b777fa9b1c9b82a6b221980\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4ff8182d1b777fa9b1c9b82a6b221980\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4c7f86be3f46f01cb051adbce019d2d4\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4c7f86be3f46f01cb051adbce019d2d4\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7284d4e2077638dc82657a8db86b77ac\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7284d4e2077638dc82657a8db86b77ac\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b93afec483fa0d4a7582a06140aa36e6\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b93afec483fa0d4a7582a06140aa36e6\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fa2683c40fbae71f2f0c12c9bc0d196f\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fa2683c40fbae71f2f0c12c9bc0d196f\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b9cc393307c80ba3cd465d8ffb39e104\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\b9cc393307c80ba3cd465d8ffb39e104\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dc057511924cf93ade0589590f0760fb\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dc057511924cf93ade0589590f0760fb\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-vision:20.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\85233da6a6cd60f34cc0509007d1c972\jetified-play-services-vision-20.1.3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:20.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\85233da6a6cd60f34cc0509007d1c972\jetified-play-services-vision-20.1.3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:19.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dd0c8d314b3dc3d7f726d2d1e4f95d3d\jetified-play-services-vision-common-19.1.3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:19.1.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\dd0c8d314b3dc3d7f726d2d1e4f95d3d\jetified-play-services-vision-common-19.1.3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8182e812cd5f76507d2a6e20ab675b77\jetified-play-services-clearcut-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8182e812cd5f76507d2a6e20ab675b77\jetified-play-services-clearcut-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\d04f7acb2d79238c9e0e23fe87f5ef48\jetified-play-services-flags-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\d04f7acb2d79238c9e0e23fe87f5ef48\jetified-play-services-flags-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\48aee05b8a507f9a0510f9291804acb0\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\48aee05b8a507f9a0510f9291804acb0\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\116365854135cf75961330a0255b309a\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\116365854135cf75961330a0255b309a\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fce6b87ad3f95ec02fc8c78eef616d6b\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fce6b87ad3f95ec02fc8c78eef616d6b\jetified-play-services-tasks-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\816e6b42c09a1b6e597cc572f3a17589\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\816e6b42c09a1b6e597cc572f3a17589\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\a9cb9b0cd36bb58afe9e9e4d3655ae85\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\a9cb9b0cd36bb58afe9e9e4d3655ae85\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\702f506b0aea781a2defd5fda9323547\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\702f506b0aea781a2defd5fda9323547\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\376caf584ad34a5ed188ae2d2a9509f4\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\376caf584ad34a5ed188ae2d2a9509f4\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8fdfe0ed4f49f237fce4b8eb2bbe90db\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8fdfe0ed4f49f237fce4b8eb2bbe90db\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\69125072a8c07d9882d3e098bd32da01\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\69125072a8c07d9882d3e098bd32da01\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7a098e640199185c6916ae526be82686\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\7a098e640199185c6916ae526be82686\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\afbda0ae7b3cbc8cbe63572945c673a9\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\afbda0ae7b3cbc8cbe63572945c673a9\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\71b342582789c16bd91633ba755cdfb5\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\71b342582789c16bd91633ba755cdfb5\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\308285afa8a1445bd0945e875f565fcf\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\308285afa8a1445bd0945e875f565fcf\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\0e3399cf646f74c4459d40f3000a29cf\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\0e3399cf646f74c4459d40f3000a29cf\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\e55a4fa628324a33d327f8ada4a51070\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\e55a4fa628324a33d327f8ada4a51070\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\2799de8c94d7928f032a0c93fe6e835e\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\2799de8c94d7928f032a0c93fe6e835e\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\80b30caf82cd8493a14c0caf3cb95e9f\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\80b30caf82cd8493a14c0caf3cb95e9f\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\a0960204ee639b947b6d39c5085252cb\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\a0960204ee639b947b6d39c5085252cb\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\effe83b63d54f30fddb05cbef09afa78\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\effe83b63d54f30fddb05cbef09afa78\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8fd8bbd611262ac5cb6b577cf553038d\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\8fd8bbd611262ac5cb6b577cf553038d\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\cce015a5a66879e665a46a90eefce845\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\cce015a5a66879e665a46a90eefce845\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\9d6c1aed2346409884a8510f6db7ed16\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\9d6c1aed2346409884a8510f6db7ed16\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.8.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1fe78b6b975cf3d4e1242d7cf8ef21b2\core-1.8.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.8.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1fe78b6b975cf3d4e1242d7cf8ef21b2\core-1.8.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1351cad4cc53f0b53b0fde385d7e53b5\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1351cad4cc53f0b53b0fde385d7e53b5\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.heifwriter:heifwriter:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\867af636cff2215c04caeff9edd8457c\heifwriter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.heifwriter:heifwriter:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\867af636cff2215c04caeff9edd8457c\heifwriter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c41730030e4f8e702000cd1ebee6ce9f\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c41730030e4f8e702000cd1ebee6ce9f\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4ae8016e527e21cd566dc68ba974ca22\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\4ae8016e527e21cd566dc68ba974ca22\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\60ee73d075e9970bb5b6d6847b748e33\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\60ee73d075e9970bb5b6d6847b748e33\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\adefea34a50b9bccfc4f9e2883688132\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\adefea34a50b9bccfc4f9e2883688132\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\f5eafe47b6744b9d6fce9d2f508593c5\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\f5eafe47b6744b9d6fce9d2f508593c5\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fb00dd5d74f4518948e74407745a961e\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\fb00dd5d74f4518948e74407745a961e\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\25f49062eb1ed4e1e1113ea3f2d165b9\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\25f49062eb1ed4e1e1113ea3f2d165b9\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1d829511e1f78dad3821b230ef9ec7fa\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\1d829511e1f78dad3821b230ef9ec7fa\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c56b5f7dcb3430ce685ec699ea6f3ad3\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c56b5f7dcb3430ce685ec699ea6f3ad3\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\84bea709552a2823ea56d5e1f18512f1\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\84bea709552a2823ea56d5e1f18512f1\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6abc46d96e2b85ce69cad917aef94b95\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6abc46d96e2b85ce69cad917aef94b95\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\603454890a0e26124b4bc2101c616db2\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\603454890a0e26124b4bc2101c616db2\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\bf5b96e9abd2aed653efd48f3521888d\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\bf5b96e9abd2aed653efd48f3521888d\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\e773f566621ffaa15040280be419d16a\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\e773f566621ffaa15040280be419d16a\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\5a166ab4c162403512e361cf1ee00169\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\5a166ab4c162403512e361cf1ee00169\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml
+INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [:flutter_image_compress] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_image_compress\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-52
+	android:targetSdkVersion
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\android\app\src\debug\AndroidManifest.xml
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-77
+	android:name
+		ADDED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-74
+service#com.baseflow.geolocator.GeolocatorLocationService
+ADDED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-14:56
+	android:enabled
+		ADDED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-35
+	android:exported
+		ADDED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-37
+	android:foregroundServiceType
+		ADDED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-53
+	android:name
+		ADDED from [:geolocator_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-77
+uses-permission#android.permission.CAMERA
+ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-62
+uses-feature#android.hardware.camera
+ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-60
+	android:name
+		ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:11:19-57
+uses-permission#android.permission.FLASHLIGHT
+ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-69
+	android:name
+		ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-66
+activity#com.amolg.flutterbarcodescanner.BarcodeCaptureActivity
+ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-91
+	android:name
+		ADDED from [:flutter_barcode_scanner] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:18:19-88
+provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
+ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
+	android:exported
+		ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+	android:resource
+		ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+	android:name
+		ADDED from [:image_picker_android] C:\Users\el-ga\Desktop\Documents\Android Dominiotech\eco2biz_flutter\build\image_picker_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\83c0701f163fc8f853a35a495a15ad62\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\c5b3c3f7acb6fd105cdb96104a491f9d\jetified-play-services-base-17.4.0\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.4.0] C:\Users\el-ga\.gradle\caches\transforms-2\files-2.1\6dde03640fbf5f5de5089fa9a927d4bd\jetified-play-services-basement-17.4.0\AndroidManifest.xml:24:13-58

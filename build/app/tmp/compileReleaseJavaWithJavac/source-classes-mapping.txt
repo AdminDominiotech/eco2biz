@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/dominiotech/eco2biz/BuildConfig.java
+ com.dominiotech.eco2biz.BuildConfig
