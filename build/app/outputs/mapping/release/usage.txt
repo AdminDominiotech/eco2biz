@@ -7476,6 +7476,8 @@ com.google.android.gms.common.config.zze
 com.tekartik.sqflite.BuildConfig
 kotlinx.coroutines.flow.StateFlow
 kotlinx.coroutines.flow.FlowKt__ZipKt$combineUnsafe$$inlined$unsafeFlow$1$1
+androidx.core.view.ViewCompat$Api15Impl:
+    private void <init>()
 androidx.core.text.PrecomputedTextCompat:
     public static androidx.core.text.PrecomputedTextCompat create(java.lang.CharSequence,androidx.core.text.PrecomputedTextCompat$Params)
     private void <init>(java.lang.CharSequence,androidx.core.text.PrecomputedTextCompat$Params,int[])
@@ -7486,8 +7488,6 @@ androidx.core.text.PrecomputedTextCompat:
     public int getParagraphEnd(int)
     private final int[] mParagraphEnds
     private static final char LINE_FEED
-androidx.core.view.ViewCompat$Api15Impl:
-    private void <init>()
 kotlinx.coroutines.channels.LazyActorCoroutine
 com.google.android.gms.internal.vision.zzbj
 androidx.appcompat.app.ActionBar$TabListener
@@ -27603,9 +27603,9 @@ com.google.android.material.resources.TextAppearance:
     public final boolean textAllCaps
 androidx.appcompat.view.StandaloneActionMode:
     private boolean mFocusable
-androidx.lifecycle.DefaultLifecycleObserver$-CC
+io.flutter.plugin.platform.PlatformView$-CC
+io.flutter.view.TextureRegistry$SurfaceTextureEntry$-CC
 io.flutter.plugin.common.BinaryMessenger$-CC:
     public static io.flutter.plugin.common.BinaryMessenger$TaskQueue $default$makeBackgroundTaskQueue(io.flutter.plugin.common.BinaryMessenger,io.flutter.plugin.common.BinaryMessenger$TaskQueueOptions)
     public static void $default$setMessageHandler(io.flutter.plugin.common.BinaryMessenger,java.lang.String,io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler,io.flutter.plugin.common.BinaryMessenger$TaskQueue)
-io.flutter.plugin.platform.PlatformView$-CC
-io.flutter.view.TextureRegistry$SurfaceTextureEntry$-CC
+androidx.lifecycle.DefaultLifecycleObserver$-CC

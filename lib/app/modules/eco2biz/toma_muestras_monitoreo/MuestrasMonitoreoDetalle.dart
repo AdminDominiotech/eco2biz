@@ -24,8 +24,6 @@ import '../../../global/core/shared_widgets/layout/app_bar_back.dart';
 const List<String> list = <String>['Ninguna', 'Conflicto', 'Desaparecido / No se encuentra', 'Obstruido', 'Alto Riesgo'];
 
 List<dynamic>? listOfItems = [];
-
-
 SqlDb sqlDb = SqlDb();
 
 class MuestraMonitoreoDetalle extends StatefulWidget {
@@ -53,6 +51,9 @@ TextEditingController conductividadText = TextEditingController();
 TextEditingController salinidadText = TextEditingController();
 
 
+TextEditingController textObsController = TextEditingController();
+
+
 
 String? base64Path;
 String base64Image = '';
@@ -64,7 +65,6 @@ int? idParamCampo;
 
 File? foto_evidencia_path;
 File? foto_evidencia_compress;
-
 
 //parametros
 //Views Visibility
@@ -91,7 +91,7 @@ String formattedDate = DateFormat('yyyy-MM-dd–kk:mm').format(now);
 
 class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
   String? selection = null;
-  XFile? image;
+  XFile? image;//
   final ImagePicker picker = ImagePicker();
 
 
@@ -107,13 +107,10 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
     setState(() {
       image = img;
     });
-
-
     Uint8List bytes = File(image!.path).readAsBytesSync();
     base64Image = convert.base64Encode(bytes); //data:image/png;base64,
     base64Path = base64Image;
     print("img base64---> : $base64Path");
-
     print("img display ---> 2020-13-4214:23:00.jpg;${base64Path}");
     // print("img display ---> ${fechaEntrega}${horaEntrega}.jpg;${base64Path}");
     //base64Img = "${fechaEntrega}${horaEntrega}.jpg;${base64Path}";
@@ -122,26 +119,26 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
     Future<File?> stringBase64ToFile() async {
       try {
         final decodedBytes = base64Decode(base64Image!);
-
         final directory = await getTemporaryDirectory();
         final basePath = directory.path;
         await Directory('$basePath/evidence').create(recursive: true);
 
-        path =
-        '$basePath/evidence/idPuntoParamento-${DateFormat('yyyyMMddHms.SSS')
-            .format(DateTime.now())}.jpg';
+        //fixme
+        // path = '$basePath/evidence/idPuntoParamento-${DateFormat('yyyyMMddHms.SSS').format(DateTime.now())}.jpg';
 
-        //   path = '$basePath/evidence/${widget.dni}-${DateFormat('yyyyMMddHms.SSS').format(DateTime.now())}.jpg';
+        //Verificcar si existe la ruta de iamgen para x punto de monitoreo
 
+
+
+        path = '$basePath/evidence/${widget.punto_monitoreo}${widget.punto_id}${widget.plan_punto_monitoreo_id}.jpg';
         print("Path---> ${path}");
 
         File file = await File(path!).writeAsBytes(decodedBytes);
         // await File(path).delete();
-
         fotoRegistro = false;
         fotoEvidencia = true;
-
         return file;
+        
       } catch (e) {
         debugPrint('ERROR EN CONVERSION DE String A FILE:  $e');
         return null;
@@ -164,16 +161,12 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
         "  ");
     print(muestraMonitoreo); /*Agregar foto_evidencia*/
 
-    List<Map> responseReadPunto = await sqlDb.readData(""+
-        "SELECT * FROM PuntoMonitoreo");
-    print("lista puntosMonitoreo --- $responseReadPunto");
+
 
 
     List<Map> responseReadPuntoMetales = await sqlDb.readData(""
         "SELECT * FROM PuntoMetales");
     print("lista PuntoMetales --- $responseReadPuntoMetales");
-
-
 
     // subirOtraFoto = true;
     // imgEvidenciaVisible = false;
@@ -183,7 +176,6 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
       // subirOtraFoto = true;
     }
   }
-
 
 
   String? base64Path2;
@@ -210,7 +202,7 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
     Uint8List bytes2 = File(image2!.path).readAsBytesSync();
     base64Image2 = convert.base64Encode(bytes2); //data:image/png;base64,
 
-    print("img base64---> : $base64Path2");
+    print("imagen base64---> : $base64Path2");
 
     print("img display ---> 2020-13-4214:23:002.jpg;${base64Path2}");
     // print("img display ---> ${fechaEntrega}${horaEntrega}.jpg;${base64Path}");
@@ -266,12 +258,33 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
   }
 
   String dropdownValue = list.first;
+/*
+  Future<File?> pickImage() async {
+    final ImagePicker _imagePicker = ImagePicker();
+    final pickedFile = await _imagePicker.pickImage(source: ImageSource.gallery);
+    return File(pickedFile!.path);
+  }
 
+  void saveImage(File imageFile) async {
+    List<int> imageBytes = await imageFile.readAsBytes();
+    String base64Image = base64Encode(imageBytes);
+    sharedPreferences.setString('image', base64Image);
+  }
+
+  void loadImage() {
+    String? base64Image = sharedPreferences.getString('image');
+    if (base64Image != null) {
+      Uint8List imageBytes = base64Decode(base64Image);
+      File imageFile = File.fromRawPath(imageBytes);
+      // Usa la imagen cargada como desees
+    }
+  }
+  */
 
 
   @override
   void dispose() {
-
+// textObsController.dispose();
     super.dispose();
   }
 
@@ -281,24 +294,14 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
   List<String> parametros_unidad_simb = [];
   List<dynamic> parametros_metales = [];
 
-
-  //Parametros - metales
-
-  /*
-  List<String>? parametros_c_agua;
-  List<String>? parametros_c_aire;
-  List<String>? parametros_c_sedimento;
-  List<String>? parametros_c_hidrobiologico;
-  List<String>? parametros_c_suelo;
-  List<String>? parametros_c_meteorologico;
-   */
-
   late SharedPreferences sharedPreferences;
   @override
   void initState() {
     super.initState();
     initializeSharedPreferences();
     asyncInit();
+
+
 
     if (widget.elemento == 'Agua') {
       parametros_campo.add("Caudal");
@@ -316,21 +319,18 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
       parametros_unidad_simb.add("m/s");
     }
     createTextControllers();
-    loadSavedValues();
-
-
+    loadParamSavedValues();
     loadFavorite();
-
+    loadObsSavedValue();
+    //loadImage();
 
     itemCheckedState = [];
-
-
-
 
   }
 
   void initializeSharedPreferences() async {
     sharedPreferences = await SharedPreferences.getInstance();
+
   }
 
   void createTextControllers() {
@@ -366,9 +366,15 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
 
   }
 
+  void saveTextFieldValue(String value) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.setString('${widget.punto_monitoreo}${widget.punto_id}${widget.plan_punto_monitoreo_id}Obs', value);
+  }
 
 
-  void loadSavedValues() async{            // Carga campos de texto
+
+  void loadParamSavedValues() async{            // Carga campos de texto
     SharedPreferences prefs = await SharedPreferences.getInstance();
     for (int i = 0; i < parametros_campo.length; i++) {
       final savedValue = prefs.getString('${widget.punto_monitoreo}${widget.punto_id}${widget.plan_punto_monitoreo_id}$i');
@@ -378,7 +384,15 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
     }
   }
 
-  void saveTextFieldValue(String value, int index) async {   // Guarda campos de texto
+  void loadObsSavedValue() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final savedValue = prefs.getString('textValue');
+    if (savedValue != null) {
+      textObsController.text = savedValue;
+    }
+  }
+
+  void saveObsFieldValue(String value, int index) async {   // Guarda campos de texto
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('${widget.punto_monitoreo}${widget.punto_id}${widget.plan_punto_monitoreo_id}$index', value);
   }
@@ -388,21 +402,25 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
       await sharedPreferences.remove('${widget.punto_monitoreo}${widget.punto_id}${widget.plan_punto_monitoreo_id}$i');
     }
 
-
     // Limpiar los controladores de texto
     textControllers.forEach((controller) => controller.clear());
   }
 
 
   void asyncInit() async {
+
+    List<Map> responseReadPunto = await sqlDb.readData(""+
+        "SELECT * FROM PuntoMonitoreo");
+    print("lista puntosMonitoreo --- $responseReadPunto");
+
+    print('Contenido path punto monitoreo -- $responseReadPunto');
+
     // await RequestMetales();
     // await RequestPuntosMonitoreo();
 
    asistenciaCurso = await sqlDb.readData(
         "SELECT * FROM PuntoMetales WHERE PuntoMetales.id_punto = '${widget.punto_id}' ");
-
     print('read asistencia_check ---> ${asistenciaCurso}');
-
 
     if(asistenciaCurso.isEmpty){
       hasCheckedAsisstant = false;
@@ -417,18 +435,14 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
     print("lista metales --- $responseRead");
 
     //await RequestPuntosMonitoreo();
-    List<Map> responseReadPunto = await sqlDb.readData(""
+    List<Map> responseReadPunt = await sqlDb.readData(""
         "SELECT * FROM PuntoMonitoreo");
-    print("lista puntosMonitoreo --- $responseReadPunto");
-
+    print("lista puntosMonitoreo --- $responseReadPunt");
   }
 
 
   @override
   Widget build(BuildContext context) {
-
-
-
 
     void myAlert() {
       showDialog(
@@ -589,1477 +603,1438 @@ class _MuestraMonitoreoDetalleState extends State<MuestraMonitoreoDetalle> {
        }, child: Icon(Icons.upload), backgroundColor: Color(0XFF4B82B9),)),
       body: SingleChildScrollView(
         physics: ScrollPhysics(),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        child: Container(
+          
+            color: Color(0XFFE3EAB9),
           child: Column(
-
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width*1,
-                child: Row(
-                    children: [
-                      Expanded(
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10.0),
-                            ),
-                          ),
-                          elevation: 5,
-                          child:
-                          Padding(
-                            padding: EdgeInsets.only(right: 10.0, top: 0.0, bottom: 0.0),
-                            child: IntrinsicHeight(
-                              child: Container(
-                                width: MediaQuery.of(context).size.width*1,
-                                child: Row(
-                                  children: [
-
-
-                                    SizedBox(width: 10,),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(top:5.0, bottom: 8.0),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text("${widget.punto_monitoreo}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0XFF4B82B9)),),  //Punto Monitoreo
-
-                                                Container(
-                                                    width: 105,
-                                                    height: 25,
-                                                    child: ElevatedButton(onPressed: (){
-
-                                                      //fixme: Considerar -- "ma_parametro_ejecutado -- 2da tabla"
-
-                                                      print("ma_plan_monitoreo_id ---- ${widget.plan_monitoreo_id}, "
-                                                            "ma_plan_punto_monitoreo_id --  "
-                                                            "gp_autoridad_id ---- "
-                                                            "ma_parametro_elemento_id --- "
-                                                            "semana_muestreo --- "
-                                                            "caudal_parametro --- "
-                                                            "fecha_registro ---- date.now "
-                                                            "fecha_actualizacion --- date.now "
-                                                            "ma_parametro_ejecutado -- 2da tabla"
-                                                            "flag_cambio -- true"
-                                                            "descripcion --- true" );
-
-                                                    },
-                                                        style: ElevatedButton.styleFrom(
-
-                                                          backgroundColor: widget.color,
-
-                                                        ),
-                                                        child: FittedBox(child: Text("${widget.estado}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14) )  ))),
-
-                                              ],
-                                            ),
-                                            Divider(height: 10,),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text("${widget.clasificacion_elemento}", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: Color(0XFF006DB5)),),   // Clasificación del Elemento --Grupos de monitoreo
-                                                //  Image.asset("${ambitoImg}", width: 20,),
-                                              ],
-                                            ),
-
-                                            SizedBox(height: 3,),
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                    child: Text("Ubicado en la margen izquierda del Rio Uchucchacua a 200 mts del puente El Pedregal", maxLines: 2, style: TextStyle(fontSize: 12, color: Colors.grey, height: 1.6),))
-                                              ],
-                                            ),
-                                            Divider(height: 10,),
-                                            Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-
-                                                Text("${widget.plan_monitoreo})",
-                                                  maxLines: 2, style: TextStyle(fontSize: 11,  height: 1.6, color: Color(0XFF505154)),   //Codigo Planes de Monitoreo
-                                                ),
-                                                SizedBox(height: 1,),
-                                                Divider(height: 5,),
-                                                SizedBox(height: 5,),
-
-                                                Row(
-                                                  children: [
-                                                    Row(
-                                                      children: [
-                                                        Text("Grupo:   ", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13, color: Color(0XFF505154) ),),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Text("${widget.grupo_monitoreo}", style: TextStyle(fontSize: 10,  fontWeight: FontWeight.bold, color: Color(0XFF505154)),)
-                                                      ],
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            )
-                                            //Suma de registros
-                                            //Lista de nro de total de factura y monto
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]
-                ),
-              ),
 
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width*0.3 ,
-                      child: ElevatedButton(onPressed: (){
-
-                        setState(() {
-
-                          //Background colors
-                          btnParametrosBackColor = Color(0XFF006DB5);
-                          btnObservacionesBackColor = Colors.white;
-                          btnEvidenciaBackColor = Colors.white;
-
-                          //Text colors
-                          btnParametrosTextColor = Colors.white;
-                          btnObservacionesTextColor = Color(0XFF006DB5);
-                          btnEvidenciaTextColor = Color(0XFF006DB5);
-
-                          isParametros = true;
-                          isObservaciones = false;
-                          isEvidencia = false;
-                        });
-
-                      },style: ElevatedButton.styleFrom(
-                        backgroundColor: btnParametrosBackColor
-                      ),
-                          child: Row(
-                            children: [
-                              Text("Parámetros", style: TextStyle(color: btnParametrosTextColor),),
-                            ],
-                          )),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width*0.36 ,
-                      child: ElevatedButton(onPressed: (){
-                        setState(() {
-                          btnParametrosBackColor = Colors.white;
-                          btnObservacionesBackColor = Color(0XFF006DB5);
-                          btnEvidenciaBackColor = Colors.white;
-
-                          btnParametrosTextColor = Color(0XFF006DB5);
-                          btnObservacionesTextColor = Colors.white;
-                          btnEvidenciaTextColor = Color(0XFF006DB5);
-
-                          isParametros = false;
-                          isObservaciones = true;
-                          isEvidencia = false;
-                        });
-
-                      }, child: Text("Observaciones", style: TextStyle(           color:  btnObservacionesTextColor ),),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: btnObservacionesBackColor
-                      ),),
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width*0.24 ,
-                      child: ElevatedButton(onPressed: (){
-                        setState(() {
-
-                          btnParametrosBackColor = Colors.white;
-                          btnObservacionesBackColor = Colors.white;
-                          btnEvidenciaBackColor = Color(0XFF006DB5);
-
-                          btnParametrosTextColor = Color(0XFF006DB5);
-                          btnObservacionesTextColor =  Color(0XFF006DB5);
-                          btnEvidenciaTextColor = Colors.white;
-
-                          isParametros = false;
-                          isObservaciones = false;
-                          isEvidencia = true;
-                        });
-                      }, child: Text("Fotos", style: TextStyle(           color: btnEvidenciaTextColor ),),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: btnEvidenciaBackColor
-                      ),),
-                    ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 4,),
-
-
-              /*
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Expanded(child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Divider(height: 5, thickness: 1.0),
-                  )),
-
-                  Padding(
-                      padding: const EdgeInsets.only(left: 8.0, right: 8.0) ,
-                      child: Container(
-                        width: MediaQuery.of(context).size.width*0.35,
-                        height: 35,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF4B82B9),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              //      Icon(Icons.save, size: 16,),
-                              //        SizedBox(width: 10,),
-                              Text("Guardar", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-                            ],
-                          ),
-                          onPressed: () async{
-
-                            //Parametros de campo
-                            if(widget.elemento == 'Agua'){
-
-                              int responseEntregaDetalle = await sqlDb.insertData("INSERT INTO 'PuntoMetales' "
-                                  " ('id_punto',           'id_metal',            'valor',              'plan_punto_monitoreo_id'   ,           'gp_autoridad_id',              'flag_cambio',      'estado') VALUES "
-                                  " ('${widget.punto_id}',   '654',      '${caudalText.text}',        '${widget.plan_punto_monitoreo_id}' ,     ${widget.gp_autoridad_id},        '1'        ,         '1'),"   //caudal
-                                  " ('${widget.punto_id}',   '51',      '${conductividadText.text}',   '${widget.plan_punto_monitoreo_id}' ,   ${widget.gp_autoridad_id},         '1'         ,        '1'), "  //conduct
-                                  " ('${widget.punto_id}',   '3055',    '${salinidadText.text}',    '${widget.plan_punto_monitoreo_id}' ,       ${widget.gp_autoridad_id},        '1'         ,        '1') ");  //salinidad
-
-                              print("Se inserto registro parametros de campo ${widget.punto_id}'' --- $responseEntregaDetalle");
-                            }
-
-
-                            List<Map> responseReadTablaPuntosMetales = await sqlDb.readData(""
-                                "SELECT * FROM PuntoMetales");
-                            print("tabla puntosMonitoreo --- $responseReadTablaPuntosMetales");
-
-
-                            await responseReadTablaPuntosMetales;
-                            List<Map> responseReadTablaPuntosMonitor = await sqlDb.readData(""
-                                "SELECT * FROM PuntoMonitoreo");
-                            print("tabla PuntoMonitoreo --- $responseReadTablaPuntosMonitor");
-
-                            await responseReadTablaPuntosMonitor;
-
-                          },
-                        ),
-                      )
-                  ),
-
-
-
-                ],
-              ),
-              */
-
-              SizedBox(height: 4,),
-              //Parametros Screen
-
-
-              Visibility(
-                visible: isParametros,
                 child: Column(
+
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(        color: Colors.white,   borderRadius: BorderRadius.circular(10.0) ),
-                        child:
-
-
-
-                        ExpandableNotifier(
-                          child: Column(
-                            children: [
-                              Expandable(
-                                collapsed: ExpandableButton(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color:  Color(0xFF9DCB47),
-                                      borderRadius:  BorderRadius.circular(10.0)),
-
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                    Container(
+                      width: MediaQuery.of(context).size.width*1,
+                      child: Row(
+                          children: [
+                            Expanded(
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(10.0),
+                                  ),
+                                ),
+                                elevation: 5,
+                                child:
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10.0, top: 0.0, bottom: 0.0),
+                                  child: IntrinsicHeight(
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width*1,
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Row(
-                                            children: [
-                                              Icon(Icons.add, color:  Colors.white, ),
-                                              SizedBox(width: 10,),
-                                              Text("Parámetros de campo", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
-                                            ],
-                                          ),
 
-                                          Padding(
-                                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                              child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
-                                          ),
 
+                                          SizedBox(width: 10,),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(top:5.0, bottom: 8.0),
+                                              child: Column(
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text("${widget.punto_monitoreo}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0XFF4B82B9)),),  //Punto Monitoreo
+
+                                                      Container(
+                                                          width: 105,
+                                                          height: 25,
+                                                          child: ElevatedButton(onPressed: (){
+
+                                                            //fixme: Considerar -- "ma_parametro_ejecutado -- 2da tabla"
+
+                                                            print("ma_plan_monitoreo_id ---- ${widget.plan_monitoreo_id}, "
+                                                                  "ma_plan_punto_monitoreo_id --  "
+                                                                  "gp_autoridad_id ---- "
+                                                                  "ma_parametro_elemento_id --- "
+                                                                  "semana_muestreo --- "
+                                                                  "caudal_parametro --- "
+                                                                  "fecha_registro ---- date.now "
+                                                                  "fecha_actualizacion --- date.now "
+                                                                  "ma_parametro_ejecutado -- 2da tabla"
+                                                                  "flag_cambio -- true"
+                                                                  "descripcion --- true" );
+
+                                                          },
+                                                              style: ElevatedButton.styleFrom(
+
+                                                                backgroundColor: widget.color,
+
+                                                              ),
+                                                              child: FittedBox(child: Text("${widget.estado}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14) )  ))),
+
+                                                    ],
+                                                  ),
+                                                  Divider(height: 10,),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text("${widget.clasificacion_elemento}", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: Color(0XFF006DB5)),),   // Clasificación del Elemento --Grupos de monitoreo
+                                                      //  Image.asset("${ambitoImg}", width: 20,),
+                                                    ],
+                                                  ),
+
+                                                  SizedBox(height: 3,),
+                                                  Row(
+                                                    children: [
+                                                      Expanded(
+                                                          child: Text("Ubicado en la margen izquierda del Rio Uchucchacua a 200 mts del puente El Pedregal", maxLines: 2, style: TextStyle(fontSize: 12, color: Colors.grey, height: 1.6),))
+                                                    ],
+                                                  ),
+                                                  Divider(height: 10,),
+                                                  Column(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+
+                                                      Text("${widget.plan_monitoreo})",
+                                                        maxLines: 2, style: TextStyle(fontSize: 11,  height: 1.6, color: Color(0XFF505154)),   //Codigo Planes de Monitoreo
+                                                      ),
+                                                      SizedBox(height: 1,),
+                                                      Divider(height: 5,),
+                                                      SizedBox(height: 5,),
+
+                                                      Row(
+                                                        children: [
+                                                          Row(
+                                                            children: [
+                                                              Text("Grupo:   ", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13, color: Color(0XFF505154) ),),
+                                                            ],
+                                                          ),
+                                                          Row(
+                                                            children: [
+                                                              Text("${widget.grupo_monitoreo}", style: TextStyle(fontSize: 10,  fontWeight: FontWeight.bold, color: Color(0XFF505154)),)
+                                                            ],
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  )
+                                                  //Suma de registros
+                                                  //Lista de nro de total de factura y monto
+                                                ],
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                expanded:
-                                Column(
-                                  children: [
-                                    ExpandableButton(
-                                      child:  Container(
-
-                                        decoration: BoxDecoration(
-                                            color:  Color(0xFF9DCB47),
-                                             borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(5.0),
-                                                 topLeft: Radius.circular(5.0)),),
-
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Icon(Icons.add, color:  Colors.white, ),
-                                                  SizedBox(width: 10,), //( ${parametros_campo.length} )
-                                                  Text("Parámetros de campo   ", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
-                                                ],
-                                              ),
-
-
-                                              Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                                  child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
-                                              ),
-
-                                              /*
-                                              Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                                  child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
-                                              ),
-                                               */
-
-
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-
-                                    SizedBox(height: 2,),
-
-                                    ListView.builder(
-                                      scrollDirection: Axis.vertical,
-                                      physics: NeverScrollableScrollPhysics(),
-                                      shrinkWrap: true,
-                                      itemCount: parametros_campo.length,
-                                      prototypeItem: ListTile(
-                                        title: Text(parametros_campo.first),
-                                      ),
-                                      itemBuilder: (context, index) {
-                                        return ListTile(
-                                          title:        Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                            children: [
-                                              Container(
-                                                  width: MediaQuery.of(context).size.width*0.35,
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(Icons.chevron_right, color: Color(0XFFADC22F)),
-                                                      SizedBox(width: 5,),
-                                                      Container(child: Expanded(child: Text("${parametros_campo[index]}", style: TextStyle(color: Color(0XFF505154), fontSize: 14),))),
-                                                    ],
-                                                  )),
-                                              Row(
-                                                children: [
-                                                  Center(
-                                                    child: Container(
-                                                      width: 50,
-                                                      height: 30,
-                                                      child:    Container(
-                                                          width: MediaQuery.of(context).size.width*0.10,
-                                                          child: Align(
-                                                              alignment: Alignment.center,
-                                                              child: Text("${parametros_unidad_simb[index]}", style: TextStyle(fontSize: 12, color: Colors.grey),))
-                                                      )
-                                                    ),
-                                                  ),
-
-                                                  SizedBox(width: 10,),
-
-                                                  Container(
-                                                    width: 80,
-                                                    height: 30,
-                                                    child: TextField(
-
-                                                      controller: textControllers[index],
-                                                      textAlign: TextAlign.center,
-                                                      decoration: InputDecoration(
-                                                          contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                                                          border: OutlineInputBorder(
-                                                              borderRadius: BorderRadius.circular(5))),
-                                                          onChanged: (value) {
-
-                                                        if(parametros_unidad_simb[index] == 'L/s' ){
-
-
-                                                          caudalText.text = value;
-                                                          saveTextFieldValue(value, index);
-
-
-                                                        }
-
-                                                        if(parametros_unidad_simb[index] == 'µS/cm' ){
-                                                          conductividadText.text = value;
-                                                        }
-
-                                                        if(parametros_unidad_simb[index] == 'NTU' ){
-                                                          salinidadText.text = value;
-                                                        }
-
-
-                                                        print("Caudal --- ${caudalText.text}");
-                                                        print("Cond elect --- ${conductividadText.text}");
-                                                        print("Salinidad --- ${salinidadText.text}");
-
-                                                      },
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          )
-                                        );
-                                      },
-                                    ),
-                                    SizedBox(height: 4,),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          //exp      ),
-
-
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(        color: Colors.white,   borderRadius: BorderRadius.circular(10.0) ),
-                        child: Column(
-                          children: [
-
-
-                            ExpandableNotifier(  // <-- Provides ExpandableController to its children
-                              child: Column(
-                                children: [
-                                  Expandable(           // <-- Driven by ExpandableController from ExpandableNotifier
-                                    collapsed: ExpandableButton(  // <-- Expands when tapped on the cover photo
-                                      child:   Container(
-
-                                        decoration: BoxDecoration(
-                                            color:  Color(0xFF9DCB47),
-                                            borderRadius:  BorderRadius.circular(10.0)),
-
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Icon(Icons.add, color:  Colors.white, ),
-                                                  SizedBox(width: 10,),
-                                                  Text("Metales Totales", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
-                                                ],
-                                              ),
-
-                                              Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                                  child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
-                                              ),
-
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-
-                                    expanded: Column(
-                                        children: [
-                                          Column(
-                                            children: [
-                                              ExpandableButton(
-                                                child:   Container(
-                                                  decoration: BoxDecoration(
-                                                    color:  Color(0xFF9DCB47),
-                                                    borderRadius: BorderRadius.only(
-                                                        topRight: Radius.circular(5.0),
-                                                        topLeft: Radius.circular(5.0)),),
-
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.all(8.0),
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                      children: [
-                                                        Row(
-                                                          children: [
-                                                            Icon(Icons.add, color:  Colors.white, ),
-                                                            SizedBox(width: 10,), //( ${parametros_metales.length} )
-                                                            Text("Metales Totales  ", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
-                                                          ],
-                                                        ),
-
-
-                                                        Padding(
-                                                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                                            child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
-                                                        ),
-
-
-
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-
-
-                                              FutureBuilder(
-                                                future: RequestParametrosxPunto(),
-                                                builder: (BuildContext ctx, AsyncSnapshot<List> snapshot) =>
-                                                snapshot.hasData ? ListView.builder(
-                                                  scrollDirection: Axis.vertical,
-                                                  physics: NeverScrollableScrollPhysics(),
-                                                  shrinkWrap: true,
-                                                  itemCount: parametros_metales.length,
-                                                  itemBuilder: (BuildContext context, index) {
-
-                                                    listOfItems = snapshot.data;
-                                                    for(int i = 0; i < listOfItems!.length; i++){
-                                                      itemCheckedState.add(false);
-                                                    }
-
-                                                    return  Padding(
-                                                      padding: const EdgeInsets.all(4.0),
-                                                      child: Column(
-                                                        children: [
-                                                          Row(
-                                                            children: [
-                                                              Expanded(
-                                                                child: Container(
-                                                                  width: MediaQuery.of(context).size.width*0.40,
-                                                                      decoration: BoxDecoration(
-                                                                      //   color: Colors.blue,
-                                                                          borderRadius: BorderRadius.circular(10.0) ),
-
-                                                                  child: Row(
-                                                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                                        children: [
-                                                                          Container(
-                                                                              child: Expanded(
-                                                                                child: Row(
-                                                                                  children: [
-                                                                                    Icon(Icons.chevron_right, color: Color(0XFFADC22F)),
-                                                                                    SizedBox(width: 5,),
-                                                                                    Container(child: Expanded(child: Text("${snapshot.data![index]['nombre_parametro']}", style: TextStyle(color: Color(0XFF505154), fontSize: 14),))),
-                                                                                  ],
-                                                                                ),
-                                                                              )),
-
-                                                                          Row(
-                                                                            children: [
-                                                                              Center(
-                                                                                child: Container(
-                                                                                  height: 45,
-                                                                                  width: 30,
-                                                                                    child: CheckboxListTile(
-                                                                                      checkColor: Colors.white,
-                                                                                      value: itemCheckedState[index],
-                                                                               //     fillColor: MaterialStateProperty.resolveWith(getColor),
-                                                                                      onChanged: (newValue) {
-
-                                                                                        Future<void> saved() async {
-
-
-                                                                                          SharedPreferences prefs = await SharedPreferences.getInstance();
-
-                                                                                          int response = await sqlDb.insertData("INSERT INTO 'PuntoMetales' "
-                                                                                              " ('id_punto',           'id_metal',            'valor',              'plan_punto_monitoreo_id'   ,           'gp_autoridad_id',              'flag_cambio',      'estado') VALUES "
-                                                                                              " ('${widget.punto_id}',   '${snapshot.data![index]['ma_parametro_elemento_id']}', ' ', '${widget.plan_punto_monitoreo_id}',   '${widget.gp_autoridad_id}', '1', '1' ) ");
-                                                                                          print("Guardado -- $response");
-                                                                                          itemCheckedState[index] = newValue;
-                                                                                          print('position true checkbox ${itemCheckedState.length} ---- $newValue');
-                                                                                          //      print('read asistencia_check ---> ${asistenciaCurso}');
-
-                                                                                          setState(() {
-                                                                                            itemCheckedState[index] = true;
-                                                                                          });
-
-                                                                                          await prefs.setStringList("Punto-${widget.punto_id}", itemCheckedState.map((value) => value.toString()).toList());
-
-                                                                                          Future.delayed(const Duration(milliseconds: 1000), () async {
-                                                                                            List<Map> asistenciaCurso = await sqlDb.readData("SELECT * FROM PuntoMetales WHERE PuntoMetales.id_punto = '${widget.punto_id}' ");
-                                                                                            print('read asistencia_check ---> ${asistenciaCurso}');
-                                                                                            if(asistenciaCurso.isEmpty){
-
-                                                                                              setState((){
-                                                                                                hasCheckedAsisstant = false;
-                                                                                              });
-
-
-                                                                                            }else if(asistenciaCurso.isNotEmpty){
-                                                                                              setState((){
-                                                                                                hasCheckedAsisstant = true;
-                                                                                              });
-                                                                                            }
-                                                                                          });
-
-                                                                                          setState(() {
-                                                                                            itemCheckedState = (prefs.getStringList("Punto-${widget.punto_id}") ?? <bool>[]).map((value) => value == 'true').toList();
-                                                                                          });
-                                                                                        }
-
-                                                                                        Future<void> delete() async {
-
-                                                                                          SharedPreferences prefs = await SharedPreferences.getInstance();
-
-                                                                                          int responseDeletePuntoMetales = await sqlDb.deleteData("DELETE FROM PuntoMetales "
-                                                                                              " WHERE PuntoMetales.id_punto  = '${widget.punto_id}' "
-                                                                                              " AND PuntoMetales.id_metal = '${snapshot.data![index]['ma_parametro_elemento_id']}' " );
-                                                                                          print("Delete registro PuntoMetales $responseDeletePuntoMetales");
-
-
-                                                                                          print("Delete registro PuntoMetales $responseDeletePuntoMetales");
-                                                                                          print('position false checkbox ${itemCheckedState.length} ---- $newValue');
-                                                                                          // print('read asistencia_check ---> ${asistenciaCurso}');
-
-                                                                                          Future.delayed(const Duration(milliseconds: 3000), () async{
-                                                                                            List<Map> asistenciaCurso = await sqlDb.readData("SELECT * FROM PuntoMetales WHERE PuntoMetales.id_punto = '${widget.punto_id}' ");
-                                                                                            print('read punto metales ---> ${asistenciaCurso}');
-
-                                                                                            if(asistenciaCurso.isEmpty){
-
-
-
-                                                                                              setState((){
-                                                                                                hasCheckedAsisstant = false;
-                                                                                              });
-
-
-                                                                                            }else if(asistenciaCurso.isNotEmpty){
-                                                                                              setState((){
-                                                                                                hasCheckedAsisstant = true;
-                                                                                              });
-                                                                                            }
-                                                                                          });
-
-
-                                                                                          setState(() {
-                                                                                            itemCheckedState[index] = false;
-                                                                                          });
-
-                                                                                          await prefs.setStringList("Punto-${widget.punto_id}", itemCheckedState.map((value) => value.toString()).toList());
-                                                                                          setState(() {
-                                                                                            itemCheckedState = (prefs.getStringList("Punto-${widget.punto_id}") ?? <bool>[]).map((value) => value == 'true').toList();
-                                                                                          });
-
-                                                                                        }
-
-                                                                                        if(newValue == true) {
-                                                                                          saved();
-                                                                                          Future.delayed(const Duration(milliseconds: 1000), () {
-
-                                                                                            setState(() {
-                                                                                              if(itemCheckedState.contains(true)){
-                                                                                                setState((){
-                                                                                                  hasDataFlag = true;
-                                                                                                });
-
-                                                                                              }else{
-                                                                                                setState((){
-                                                                                                  hasDataFlag = false;
-                                                                                                });
-                                                                                              }
-
-                                                                                            });
-
-                                                                                          });
-
-                                                                                        }else if (newValue == false){
-                                                                                          delete();
-
-                                                                                          Future.delayed(const Duration(milliseconds: 1000), () {
-
-                                                                                            setState(() {
-                                                                                              if(itemCheckedState.contains(true)){
-                                                                                                setState((){
-                                                                                                  hasDataFlag = true;
-                                                                                                });
-
-                                                                                              }else{
-                                                                                                setState((){
-                                                                                                  hasDataFlag = false;
-                                                                                                });
-                                                                                              }
-
-                                                                                            });
-
-                                                                                          });
-
-                                                                                        }
-
-
-                                                                                      },
-                                                                                    ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-
-
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Divider(height: 1,),
-
-                                                        ],
-                                                      ),
-                                                    );
-
-                                                  },
-                                                )  : const Center(
-                                                  // render the loading indicator
-                                                  child: CircularProgressIndicator(),
-                                                )
-                                              ),
-                                              Visibility(
-                                                //     visible: btnEliminarRegistro,
-                                                visible: true,
-                                                child: MaterialButton(onPressed: () async {
-                                                  await sqlDb.mydeleteDatabase();
-                                                },
-                                                  child: Text("Eliminar registros", style: TextStyle(color: Colors.grey),),
-                                                ),
-                                              ),
-
-                                            ],
-                                          ),
-
-
-
-                                        ]
-                                    ),
-                                  ),
-                                ],
                               ),
                             ),
-
-
-                          ],
-                        ),
+                          ]
                       ),
                     ),
-                    
-                    SizedBox(height: 10,),
+
 
 
                   ],
                 ),
               ),
 
-              //Observaciones Screen
+              Container(
+                
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20.0),
+                    topLeft: Radius.circular(20.0)),),
 
-              Visibility(
-                  visible: isObservaciones,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-
-                          borderRadius: BorderRadius.circular(5.0) ),
-
-                      child: Column(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            color: Colors.white,
+                            width: MediaQuery.of(context).size.width*0.3 ,
+                            child: ElevatedButton(onPressed: (){
 
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF9DCB47),
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(5.0),
-                                      topLeft: Radius.circular(5.0)),),
+                              setState(() {
 
+                                //Background colors
+                                btnParametrosBackColor = Color(0XFF006DB5);
+                                btnObservacionesBackColor = Colors.white;
+                                btnEvidenciaBackColor = Colors.white;
 
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.warning_amber_rounded , color: Colors.white,),
-                                            SizedBox(width: 10,),
-                                            Text("Excepción", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: MediaQuery.of(context).size.width*1,
-                                        child:  DropdownButton<String>(
-                                          isExpanded: true,
-                                          value: dropdownValue,
-                                          dropdownColor: Colors.white,
-                                          icon: const Icon(Icons.arrow_drop_down_outlined),
-                                          elevation: 18,
-                                          style: const TextStyle(color: Color(0xFF4B82B9), fontWeight: FontWeight.w500, fontSize: 15),
-                                          underline: Container(
-                                            height: 2,
-                                            color: Color(0XFFADC22F),
-                                          ),
-                                          onChanged: (String? value) {
-                                            // This is called when the user selects an item.
-                                            setState(() {
-                                              dropdownValue = value!;
-                                            });
-                                          },
-                                          items: list.map<DropdownMenuItem<String>>((String value) {
-                                            return DropdownMenuItem<String>(
-                                              value: value,
-                                              child: Text(value),
-                                            );
-                                          }).toList(),
-                                        ),
-                                      ),
+                                //Text colors
+                                btnParametrosTextColor = Colors.white;
+                                btnObservacionesTextColor = Color(0XFF006DB5);
+                                btnEvidenciaTextColor = Color(0XFF006DB5);
 
+                                isParametros = true;
+                                isObservaciones = false;
+                                isEvidencia = false;
+                              });
 
-                                    ],
-                                  ),
-                                )
-                              ],
-              ),
-                          ),
-
-
-                       SizedBox(height: 20,),
-                          Container(
-                            color: Colors.white,
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF9DCB47),
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(5.0),
-                                        topLeft: Radius.circular(5.0)),),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.search, color: Colors.white,),
-
-                                            SizedBox(width: 10,),
-                                            Text("Observaciones", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                          width: MediaQuery.of(context).size.width*1,
-                                          child: TextField(
-                                            minLines: 3, // Set this
-                                            maxLines: 6, // and this
-                                            keyboardType: TextInputType.multiline,
-                                            style: TextStyle(color: Color(0xFF4B82B9), fontWeight: FontWeight.w500, fontSize: 14),
-                                            decoration: InputDecoration(
-                                              hintText: "Ingrese su Observación...",
-                                              hintStyle: TextStyle(color: Colors.grey),
-                                              enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0XFFADC22F), width: 2 ),
-                                              ),
-                                              focusedBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0XFFADC22F), width: 2 ),
-                                              ),
-                                            ),
-                                          )
-                                      ),
-
-                                    ],
-                                  ),
-                                )
-                              ],
+                            },style: ElevatedButton.styleFrom(
+                                backgroundColor: btnParametrosBackColor
                             ),
+                                child: Row(
+                                  children: [
+                                    Text("Parámetros", style: TextStyle(color: btnParametrosTextColor),),
+                                  ],
+                                )),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width*0.36 ,
+                            child: ElevatedButton(onPressed: (){
+                              setState(() {
+                                btnParametrosBackColor = Colors.white;
+                                btnObservacionesBackColor = Color(0XFF006DB5);
+                                btnEvidenciaBackColor = Colors.white;
+
+                                btnParametrosTextColor = Color(0XFF006DB5);
+                                btnObservacionesTextColor = Colors.white;
+                                btnEvidenciaTextColor = Color(0XFF006DB5);
+
+                                isParametros = false;
+                                isObservaciones = true;
+                                isEvidencia = false;
+                              });
+
+                            }, child: Text("Observaciones", style: TextStyle(           color:  btnObservacionesTextColor ),),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: btnObservacionesBackColor
+                              ),),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width*0.24 ,
+                            child: ElevatedButton(onPressed: (){
+                              setState(() {
+
+                                btnParametrosBackColor = Colors.white;
+                                btnObservacionesBackColor = Colors.white;
+                                btnEvidenciaBackColor = Color(0XFF006DB5);
+
+                                btnParametrosTextColor = Color(0XFF006DB5);
+                                btnObservacionesTextColor =  Color(0XFF006DB5);
+                                btnEvidenciaTextColor = Colors.white;
+
+                                isParametros = false;
+                                isObservaciones = false;
+                                isEvidencia = true;
+                              });
+                            }, child: Text("Fotos", style: TextStyle(           color: btnEvidenciaTextColor ),),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: btnEvidenciaBackColor
+                              ),),
                           ),
                         ],
                       ),
                     ),
-                  )),
-              
-              Visibility(
-                visible: isEvidencia,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Container(
-                          decoration: BoxDecoration(  color:Colors.white,   borderRadius: BorderRadius.circular(10.0) ),
-                          width: MediaQuery.of(context).size.width*1,
-                          child: Column(
-                            children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF9DCB47),
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(5.0),
-                                      topLeft: Radius.circular(5.0)),),
-                                  child:
-                                  Row(children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      children: [
-                                        Icon(Icons.image_search_rounded, color: Colors.white,),
-                                        SizedBox(width: 10,),
-                                        Text("Registro de Evidencias", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500 ),),
-                                      ],
-                                    ),
-                                  ),
-                            ],),
-                                ),
-                              SizedBox(height: 16,),
-                              InkWell(
-                                onTap: (){
-                                  myAlert();
-                                },
-                                child: Container(
-                                    child: Column(
-                                      children: [
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        image != null
-                                            ?    //IMG foto tomada / galeria
-                                        Visibility(
-                                          visible : true,
-                                          child: Column(
-                                            children: [
-                                              DottedBorder(
-                                                padding:
-                                                EdgeInsets.all(4.0),
-                                                color: Color(0xffADC22F),
-                                                radius:
-                                                Radius.circular(10.0),
-                                                strokeWidth: 2,
-                                                dashPattern: [10, 5],
-                                                customPath: (size) {
-                                                  return Path()
-                                                    ..moveTo(10, 0)
-                                                    ..lineTo(
-                                                        size.width - 10, 0)
-                                                    ..arcToPoint(
-                                                        Offset(
-                                                            size.width, 10),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10))
-                                                    ..lineTo(size.width,
-                                                        size.height - 10)
-                                                    ..arcToPoint(
-                                                        Offset(
-                                                            size.width - 10,
-                                                            size.height),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10))
-                                                    ..lineTo(
-                                                        10, size.height)
-                                                    ..arcToPoint(
-                                                        Offset(
-                                                            0,
-                                                            size.height -
-                                                                10),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10))
-                                                    ..lineTo(0, 10)
-                                                    ..arcToPoint(
-                                                        Offset(10, 0),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10));
-                                                },
-                                                child: ClipRRect(
-                                                  //
-                                                  borderRadius:
-                                                  BorderRadius.circular(
-                                                      8),
-                                                  child: Padding(
-                                                    padding:
-                                                    const EdgeInsets
-                                                        .all(8.0),
-                                                    child: Stack(
-                                                      children: <Widget>[
-                                                        Image.file(
-                                                          File(image!.path),
-                                                          fit: BoxFit.fill,
-                                                          //   width: MediaQuery.of(context).size.width,
-                                                          //  height: 170,
-                                                        ),
-                                                        Positioned(
-                                                          top: 0,
-                                                          right: 0,
-                                                          child:
-                                                          GestureDetector(
-                                                            onTap: () {
-                                                              print(
-                                                                  'Eliminar imagen');
-                                                              setState(() {
-                                                                print(
-                                                                    'set new state of images');
-                                                              });
-                                                            },
-                                                            child: Padding(
-                                                              padding:
-                                                              const EdgeInsets
-                                                                  .all(
-                                                                  8.0),
-                                                              child:
-                                                              Container(
-                                                                decoration:
-                                                                BoxDecoration(
-                                                                  color: Color(
-                                                                      0xff006DB5),
-                                                                  border: Border.all(
-                                                                      width:
-                                                                      2,
-                                                                      color:
-                                                                      Colors.white),
-                                                                  borderRadius: BorderRadius.only(
-                                                                      topRight: Radius.circular(
-                                                                          40.0),
-                                                                      bottomRight: Radius.circular(
-                                                                          40.0),
-                                                                      topLeft: Radius.circular(
-                                                                          40.0),
-                                                                      bottomLeft:
-                                                                      Radius.circular(40.0)),
-                                                                ),
-                                                                child:
-                                                                InkWell(
-                                                                  onTap:
-                                                                      () {
 
-                                                                    setState(() {
-                                                                      fotoEvidencia = false;
-                                                                      fotoRegistro = true;
-                                                                    });
-                                                                  },
-                                                                  child:
-                                                                  Padding(
-                                                                    padding:
-                                                                    const EdgeInsets.all(2.0),
-                                                                    child:
-                                                                    Icon(
-                                                                      Icons
-                                                                          .close_rounded,
-                                                                      color:
-                                                                      Colors.white,
-                                                                      size:
-                                                                      18,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
+
+                    Divider(height: 8,),
+                    //Parametros Screen
+
+                    Visibility(
+                      visible: isParametros,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(        color: Colors.white,   borderRadius: BorderRadius.circular(10.0) ),
+                              child:
+                              ExpandableNotifier(
+                                child: Column(
+                                  children: [
+                                    Expandable(
+                                      collapsed: ExpandableButton(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color:  Color(0xFF9DCB47),
+                                              borderRadius:  BorderRadius.circular(10.0)),
+
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.add, color:  Colors.white, ),
+                                                    SizedBox(width: 10,),
+                                                    Text("Parámetros de campo", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
+                                                  ],
+                                                ),
+
+                                                Padding(
+                                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                    child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
+                                                ),
+
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      expanded:
+                                      Column(
+                                        children: [
+                                          ExpandableButton(
+                                            child:  Container(
+
+                                              decoration: BoxDecoration(
+                                                color:  Color(0xFF9DCB47),
+                                                borderRadius: BorderRadius.only(
+                                                    topRight: Radius.circular(5.0),
+                                                    topLeft: Radius.circular(5.0)),),
+
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(8.0),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Icon(Icons.add, color:  Colors.white, ),
+                                                        SizedBox(width: 10,), //( ${parametros_campo.length} )
+                                                        Text("Parámetros de campo   ", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
                                                       ],
                                                     ),
-                                                  ),
-                                                ),
-                                              ),
-
-                                              SizedBox(height: 10,),
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(Icons.camera_alt, size: 18, color: Color(0XFF006DB5),),
-                                                  SizedBox(width: 6,),
-                                                  Text("Evidencia 1", style: TextStyle(color: Color(0XFF505154), fontWeight: FontWeight.w500),)
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                            : Text(""),
 
 
-                                        //img Registrar Evidencia
-                                        Visibility(
-                                          visible: fotoRegistro,
-                                          child: DottedBorder(
-                                            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                                            color: Color(0xffADC22F),
-                                            radius: Radius.circular(10.0),
-                                            strokeWidth: 2,
-                                            dashPattern: [10, 5],
-                                            customPath: (size) {
-                                              return Path()
-                                                ..moveTo(10, 0)
-                                                ..lineTo(size.width - 10, 0)
-                                                ..arcToPoint(
-                                                    Offset(size.width, 10),
-                                                    radius: Radius.circular(10))
-                                                ..lineTo(size.width,
-                                                    size.height - 10)
-                                                ..arcToPoint(
-                                                    Offset(size.width - 10,
-                                                        size.height),
-                                                    radius: Radius.circular(10))
-                                                ..lineTo(10, size.height)
-                                                ..arcToPoint(
-                                                    Offset(0, size.height - 10),
-                                                    radius: Radius.circular(10))
-                                                ..lineTo(0, 10)
-                                                ..arcToPoint(Offset(10, 0),
-                                                    radius:
-                                                    Radius.circular(10));
-                                            },
-                                            child: Visibility(
-                                              visible: true,
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                  BorderRadius.all(
-                                                      Radius.circular(
-                                                          5.0) //
-                                                  ),
-                                                ),
-                                                padding: EdgeInsets.all(16.0),
-                                                child: Column(
-                                                  children: [
-                                                    Image.asset(
-                                                      'assets/images/subir_Evidencia_2.png',
-                                                      width: 90,
-                                                      height: 65,
+                                                    Padding(
+                                                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                        child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
                                                     ),
-                                                    SizedBox(
-                                                      height: 10,
-                                                    ),
-                                                    Text(
-                                                      "Evidencia 1",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                          FontWeight.w500,
-                                                          fontSize: 12,
-                                                          color: Colors.grey),
-                                                    )
+
+                                                    /*
+                                                  Padding(
+                                                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                      child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
+                                                  ),
+                                                   */
+
+
                                                   ],
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ),
 
-                                      ],
-                                    )
+                                          SizedBox(height: 2,),
+
+                                          ListView.builder(
+                                            scrollDirection: Axis.vertical,
+                                            physics: NeverScrollableScrollPhysics(),
+                                            shrinkWrap: true,
+                                            itemCount: parametros_campo.length,
+                                            prototypeItem: ListTile(
+                                              title: Text(parametros_campo.first),
+                                            ),
+                                            itemBuilder: (context, index) {
+                                              return ListTile(
+                                                  title:        Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                    children: [
+                                                      Container(
+                                                          width: MediaQuery.of(context).size.width*0.35,
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(Icons.chevron_right, color: Color(0XFFADC22F)),
+                                                              SizedBox(width: 5,),
+                                                              Container(child: Expanded(child: Text("${parametros_campo[index]}", style: TextStyle(color: Color(0XFF505154), fontSize: 14),))),
+                                                            ],
+                                                          )),
+                                                      Row(
+                                                        children: [
+                                                          Center(
+                                                            child: Container(
+                                                                width: 50,
+                                                                height: 30,
+                                                                child:    Container(
+                                                                    width: MediaQuery.of(context).size.width*0.10,
+                                                                    child: Align(
+                                                                        alignment: Alignment.center,
+                                                                        child: Text("${parametros_unidad_simb[index]}", style: TextStyle(fontSize: 12, color: Colors.grey),))
+                                                                )
+                                                            ),
+                                                          ),
+
+                                                          SizedBox(width: 10,),
+
+                                                          Container(
+                                                            width: 80,
+                                                            height: 30,
+                                                            child: TextField(
+
+                                                              controller: textControllers[index],
+                                                              textAlign: TextAlign.center,
+                                                              decoration: InputDecoration(
+                                                                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                                                                  border: OutlineInputBorder(
+                                                                      borderRadius: BorderRadius.circular(5))),
+                                                              onChanged: (value) {
+
+                                                                if(parametros_unidad_simb[index] == 'L/s' ){
+
+
+                                                                  caudalText.text = value;
+                                                                  saveObsFieldValue(value, index);
+
+
+                                                                }
+
+                                                                if(parametros_unidad_simb[index] == 'µS/cm' ){
+                                                                  conductividadText.text = value;
+                                                                }
+
+                                                                if(parametros_unidad_simb[index] == 'NTU' ){
+                                                                  salinidadText.text = value;
+                                                                }
+
+                                                                print("Caudal --- ${caudalText.text}");
+                                                                print("Cond elect --- ${conductividadText.text}");
+                                                                print("Salinidad --- ${salinidadText.text}");
+
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  )
+                                              );
+                                            },
+                                          ),
+                                          SizedBox(height: 4,),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
+                                //exp      ),
+
 
                               ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(        color: Colors.white,   borderRadius: BorderRadius.circular(10.0) ),
+                              child: Column(
+                                children: [
+
+
+                                  ExpandableNotifier(  // <-- Provides ExpandableController to its children
+                                    child: Column(
+                                      children: [
+                                        Expandable(           // <-- Driven by ExpandableController from ExpandableNotifier
+                                          collapsed: ExpandableButton(  // <-- Expands when tapped on the cover photo
+                                            child:   Container(
+
+                                              decoration: BoxDecoration(
+                                                  color:  Color(0xFF9DCB47),
+                                                  borderRadius:  BorderRadius.circular(10.0)),
+
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(8.0),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Icon(Icons.add, color:  Colors.white, ),
+                                                        SizedBox(width: 10,),
+                                                        Text("Metales Totales", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
+                                                      ],
+                                                    ),
+
+                                                    Padding(
+                                                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                        child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
+                                                    ),
+
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+                                          expanded: Column(
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                    ExpandableButton(
+                                                      child:   Container(
+                                                        decoration: BoxDecoration(
+                                                          color:  Color(0xFF9DCB47),
+                                                          borderRadius: BorderRadius.only(
+                                                              topRight: Radius.circular(5.0),
+                                                              topLeft: Radius.circular(5.0)),),
+
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                children: [
+                                                                  Icon(Icons.add, color:  Colors.white, ),
+                                                                  SizedBox(width: 10,), //( ${parametros_metales.length} )
+                                                                  Text("Metales Totales  ", style: TextStyle(fontSize: 16, color: Colors.white,  fontWeight: FontWeight.w500),)
+                                                                ],
+                                                              ),
+
+
+                                                              Padding(
+                                                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                                  child: Icon(Icons.arrow_drop_down_outlined, color: Color(0XFF4B82B9),)
+                                                              ),
 
 
 
-                              SizedBox(height: 7,),
-                              Divider(height: 30, thickness: 1.5,),
-                              SizedBox(height: 7,),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+
+                                                    FutureBuilder(
+                                                        future: RequestParametrosxPunto(),
+                                                        builder: (BuildContext ctx, AsyncSnapshot<List> snapshot) =>
+                                                        snapshot.hasData ? ListView.builder(
+                                                          scrollDirection: Axis.vertical,
+                                                          physics: NeverScrollableScrollPhysics(),
+                                                          shrinkWrap: true,
+                                                          itemCount: parametros_metales.length,
+                                                          itemBuilder: (BuildContext context, index) {
+
+                                                            listOfItems = snapshot.data;
+                                                            for(int i = 0; i < listOfItems!.length; i++){
+                                                              itemCheckedState.add(false);
+                                                            }
+
+                                                            return  Padding(
+                                                              padding: const EdgeInsets.all(4.0),
+                                                              child: Column(
+                                                                children: [
+                                                                  Row(
+                                                                    children: [
+                                                                      Expanded(
+                                                                        child: Container(
+                                                                          width: MediaQuery.of(context).size.width*0.40,
+                                                                          decoration: BoxDecoration(
+                                                                            //   color: Colors.blue,
+                                                                              borderRadius: BorderRadius.circular(10.0) ),
+
+                                                                          child: Row(
+                                                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                                            children: [
+                                                                              Container(
+                                                                                  child: Expanded(
+                                                                                    child: Row(
+                                                                                      children: [
+                                                                                        Icon(Icons.chevron_right, color: Color(0XFFADC22F)),
+                                                                                        SizedBox(width: 5,),
+                                                                                        Container(child: Expanded(child: Text("${snapshot.data![index]['nombre_parametro']}", style: TextStyle(color: Color(0XFF505154), fontSize: 14),))),
+                                                                                      ],
+                                                                                    ),
+                                                                                  )),
+
+                                                                              Row(
+                                                                                children: [
+                                                                                  Center(
+                                                                                    child: Container(
+                                                                                      height: 45,
+                                                                                      width: 30,
+                                                                                      child: CheckboxListTile(
+                                                                                        checkColor: Colors.white,
+                                                                                        value: itemCheckedState[index],
+                                                                                        //     fillColor: MaterialStateProperty.resolveWith(getColor),
+                                                                                        onChanged: (newValue) {
+
+                                                                                          Future<void> saved() async {
+
+
+                                                                                            SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                                                                                            int response = await sqlDb.insertData("INSERT INTO 'PuntoMetales' "
+                                                                                                " ('id_punto',           'id_metal',            'valor',              'plan_punto_monitoreo_id'   ,           'gp_autoridad_id',              'flag_cambio',      'estado') VALUES "
+                                                                                                " ('${widget.punto_id}',   '${snapshot.data![index]['ma_parametro_elemento_id']}', ' ', '${widget.plan_punto_monitoreo_id}',   '${widget.gp_autoridad_id}', '1', '1' ) ");
+                                                                                            print("Guardado -- $response");
+                                                                                            itemCheckedState[index] = newValue;
+                                                                                            print('position true checkbox ${itemCheckedState.length} ---- $newValue');
+                                                                                            //      print('read asistencia_check ---> ${asistenciaCurso}');
+
+                                                                                            setState(() {
+                                                                                              itemCheckedState[index] = true;
+                                                                                            });
+
+                                                                                            await prefs.setStringList("Punto-${widget.punto_id}", itemCheckedState.map((value) => value.toString()).toList());
+
+                                                                                            Future.delayed(const Duration(milliseconds: 1000), () async {
+                                                                                              List<Map> asistenciaCurso = await sqlDb.readData("SELECT * FROM PuntoMetales WHERE PuntoMetales.id_punto = '${widget.punto_id}' ");
+                                                                                              print('read asistencia_check ---> ${asistenciaCurso}');
+                                                                                              if(asistenciaCurso.isEmpty){
+
+                                                                                                setState((){
+                                                                                                  hasCheckedAsisstant = false;
+                                                                                                });
+
+
+                                                                                              }else if(asistenciaCurso.isNotEmpty){
+                                                                                                setState((){
+                                                                                                  hasCheckedAsisstant = true;
+                                                                                                });
+                                                                                              }
+                                                                                            });
+
+                                                                                            setState(() {
+                                                                                              itemCheckedState = (prefs.getStringList("Punto-${widget.punto_id}") ?? <bool>[]).map((value) => value == 'true').toList();
+                                                                                            });
+                                                                                          }
+
+                                                                                          Future<void> delete() async {
+
+                                                                                            SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                                                                                            int responseDeletePuntoMetales = await sqlDb.deleteData("DELETE FROM PuntoMetales "
+                                                                                                " WHERE PuntoMetales.id_punto  = '${widget.punto_id}' "
+                                                                                                " AND PuntoMetales.id_metal = '${snapshot.data![index]['ma_parametro_elemento_id']}' " );
+                                                                                            print("Delete registro PuntoMetales $responseDeletePuntoMetales");
+
+
+                                                                                            print("Delete registro PuntoMetales $responseDeletePuntoMetales");
+                                                                                            print('position false checkbox ${itemCheckedState.length} ---- $newValue');
+                                                                                            // print('read asistencia_check ---> ${asistenciaCurso}');
+
+                                                                                            Future.delayed(const Duration(milliseconds: 3000), () async{
+                                                                                              List<Map> asistenciaCurso = await sqlDb.readData("SELECT * FROM PuntoMetales WHERE PuntoMetales.id_punto = '${widget.punto_id}' ");
+                                                                                              print('read punto metales ---> ${asistenciaCurso}');
+
+                                                                                              if(asistenciaCurso.isEmpty){
+
+
+
+                                                                                                setState((){
+                                                                                                  hasCheckedAsisstant = false;
+                                                                                                });
+
+
+                                                                                              }else if(asistenciaCurso.isNotEmpty){
+                                                                                                setState((){
+                                                                                                  hasCheckedAsisstant = true;
+                                                                                                });
+                                                                                              }
+                                                                                            });
+
+
+                                                                                            setState(() {
+                                                                                              itemCheckedState[index] = false;
+                                                                                            });
+
+                                                                                            await prefs.setStringList("Punto-${widget.punto_id}", itemCheckedState.map((value) => value.toString()).toList());
+                                                                                            setState(() {
+                                                                                              itemCheckedState = (prefs.getStringList("Punto-${widget.punto_id}") ?? <bool>[]).map((value) => value == 'true').toList();
+                                                                                            });
+
+                                                                                          }
+
+                                                                                          if(newValue == true) {
+                                                                                            saved();
+                                                                                            Future.delayed(const Duration(milliseconds: 1000), () {
+
+                                                                                              setState(() {
+                                                                                                if(itemCheckedState.contains(true)){
+                                                                                                  setState((){
+                                                                                                    hasDataFlag = true;
+                                                                                                  });
+
+                                                                                                }else{
+                                                                                                  setState((){
+                                                                                                    hasDataFlag = false;
+                                                                                                  });
+                                                                                                }
+
+                                                                                              });
+
+                                                                                            });
+
+                                                                                          }else if (newValue == false){
+                                                                                            delete();
+
+                                                                                            Future.delayed(const Duration(milliseconds: 1000), () {
+
+                                                                                              setState(() {
+                                                                                                if(itemCheckedState.contains(true)){
+                                                                                                  setState((){
+                                                                                                    hasDataFlag = true;
+                                                                                                  });
+
+                                                                                                }else{
+                                                                                                  setState((){
+                                                                                                    hasDataFlag = false;
+                                                                                                  });
+                                                                                                }
+
+                                                                                              });
+
+                                                                                            });
+
+                                                                                          }
+
+
+                                                                                        },
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+
+
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  Divider(height: 1,),
+
+                                                                ],
+                                                              ),
+                                                            );
+
+                                                          },
+                                                        )  : const Center(
+                                                          // render the loading indicator
+                                                          child: CircularProgressIndicator(),
+                                                        )
+                                                    ),
+                                                    Visibility(
+                                                      //     visible: btnEliminarRegistro,
+                                                      visible: true,
+                                                      child: MaterialButton(onPressed: () async {
+                                                        await sqlDb.mydeleteDatabase();
+                                                      },
+                                                        child: Text("Eliminar registros", style: TextStyle(color: Colors.grey),),
+                                                      ),
+                                                    ),
+
+                                                  ],
+                                                ),
+
+
+
+                                              ]
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(height: 10,),
+
+
+                        ],
+                      ),
+                    ),
+
+                    //Observaciones Screen
+
+                    Visibility(
+                        visible: isObservaciones,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+
+                                borderRadius: BorderRadius.circular(5.0) ),
+
+                            child: Column(
+                              children: [
+                                Container(
+                                  color: Colors.white,
+
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF9DCB47),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(5.0),
+                                              topLeft: Radius.circular(5.0)),),
+
+
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                children: [
+                                                  Icon(Icons.warning_amber_rounded , color: Colors.white,),
+                                                  SizedBox(width: 10,),
+                                                  Text("Excepción", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              width: MediaQuery.of(context).size.width*1,
+                                              child:  DropdownButton<String>(
+                                                isExpanded: true,
+                                                value: dropdownValue,
+                                                dropdownColor: Colors.white,
+                                                icon: const Icon(Icons.arrow_drop_down_outlined),
+                                                elevation: 18,
+                                                style: const TextStyle(color: Color(0xFF4B82B9), fontWeight: FontWeight.w500, fontSize: 15),
+                                                underline: Container(
+                                                  height: 2,
+                                                  color: Color(0XFFADC22F),
+                                                ),
+                                                onChanged: (String? value) {
+                                                  // This is called when the user selects an item.
+                                                  setState(() {
+                                                    dropdownValue = value!;
+                                                  });
+                                                },
+                                                items: list.map<DropdownMenuItem<String>>((String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value),
+                                                  );
+                                                }).toList(),
+                                              ),
+                                            ),
+
+
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+
+
+                                SizedBox(height: 20,),
+                                Container(
+                                  color: Colors.white,
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF9DCB47),
+                                          borderRadius: BorderRadius.only(
+                                              topRight: Radius.circular(5.0),
+                                              topLeft: Radius.circular(5.0)),),
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                children: [
+                                                  Icon(Icons.search, color: Colors.white,),
+
+                                                  SizedBox(width: 10,),
+                                                  Text("Observaciones", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                                width: MediaQuery.of(context).size.width*1,
+                                                child: TextField(
+                                                  controller: textObsController,
+                                                  minLines: 3, // Set this
+                                                  maxLines: 6, // and this
+                                                  keyboardType: TextInputType.multiline,
+                                                  style: TextStyle(color: Color(0xFF4B82B9), fontWeight: FontWeight.w500, fontSize: 14),
+                                                  decoration: InputDecoration(
+                                                    hintText: "Ingrese su Observación...",
+                                                    hintStyle: TextStyle(color: Colors.grey),
+                                                    enabledBorder: UnderlineInputBorder(
+                                                      borderSide: BorderSide(color: Color(0XFFADC22F), width: 2 ),
+                                                    ),
+                                                    focusedBorder: UnderlineInputBorder(
+                                                      borderSide: BorderSide(color: Color(0XFFADC22F), width: 2 ),
+                                                    ),
+                                                  ),
+
+                                                  onChanged: (value) {
+                                                    saveTextFieldValue(value);
+                                                  },
+                                                )
+                                            ),
+
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )),
+
+                    Visibility(
+                      visible: isEvidencia,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Container(
+                                decoration: BoxDecoration(  color:Colors.white,   borderRadius: BorderRadius.circular(10.0) ),
+                                width: MediaQuery.of(context).size.width*1,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF9DCB47),
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(5.0),
+                                            topLeft: Radius.circular(5.0)),),
+                                      child:
+                                      Row(children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            children: [
+                                              Icon(Icons.image_search_rounded, color: Colors.white,),
+                                              SizedBox(width: 10,),
+                                              Text("Registro de Evidencias", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500 ),),
+                                            ],
+                                          ),
+                                        ),
+                                      ],),
+                                    ),
+                                    SizedBox(height: 16,),
+                                    InkWell(
+                                      onTap: (){
+                                        myAlert();
+                                      },
+                                      child: Container(
+                                          child: Column(
+                                            children: [
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              image != null
+                                                  ?    //IMG foto tomada / galeria
+                                              Visibility(
+                                                visible : true,
+                                                child: Column(
+                                                  children: [
+                                                    DottedBorder(
+                                                      padding:
+                                                      EdgeInsets.all(4.0),
+                                                      color: Color(0xffADC22F),
+                                                      radius:
+                                                      Radius.circular(10.0),
+                                                      strokeWidth: 2,
+                                                      dashPattern: [10, 5],
+                                                      customPath: (size) {
+                                                        return Path()
+                                                          ..moveTo(10, 0)
+                                                          ..lineTo(
+                                                              size.width - 10, 0)
+                                                          ..arcToPoint(
+                                                              Offset(
+                                                                  size.width, 10),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10))
+                                                          ..lineTo(size.width,
+                                                              size.height - 10)
+                                                          ..arcToPoint(
+                                                              Offset(
+                                                                  size.width - 10,
+                                                                  size.height),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10))
+                                                          ..lineTo(
+                                                              10, size.height)
+                                                          ..arcToPoint(
+                                                              Offset(
+                                                                  0,
+                                                                  size.height -
+                                                                      10),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10))
+                                                          ..lineTo(0, 10)
+                                                          ..arcToPoint(
+                                                              Offset(10, 0),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10));
+                                                      },
+                                                      child: ClipRRect(
+                                                        //
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        child: Padding(
+                                                          padding:
+                                                          const EdgeInsets
+                                                              .all(8.0),
+                                                          child: Stack(
+                                                            children: <Widget>[
+                                                              Image.file(
+                                                                File(image!.path),
+                                                                fit: BoxFit.fill,
+                                                                //   width: MediaQuery.of(context).size.width,
+                                                                //  height: 170,
+                                                              ),
+                                                              Positioned(
+                                                                top: 0,
+                                                                right: 0,
+                                                                child:
+                                                                GestureDetector(
+                                                                  onTap: () {
+                                                                    print(
+                                                                        'Eliminar imagen');
+                                                                    setState(() {
+                                                                      print(
+                                                                          'set new state of images');
+                                                                    });
+                                                                  },
+                                                                  child: Padding(
+                                                                    padding:
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                        8.0),
+                                                                    child:
+                                                                    Container(
+                                                                      decoration:
+                                                                      BoxDecoration(
+                                                                        color: Color(
+                                                                            0xff006DB5),
+                                                                        border: Border.all(
+                                                                            width:
+                                                                            2,
+                                                                            color:
+                                                                            Colors.white),
+                                                                        borderRadius: BorderRadius.only(
+                                                                            topRight: Radius.circular(
+                                                                                40.0),
+                                                                            bottomRight: Radius.circular(
+                                                                                40.0),
+                                                                            topLeft: Radius.circular(
+                                                                                40.0),
+                                                                            bottomLeft:
+                                                                            Radius.circular(40.0)),
+                                                                      ),
+                                                                      child:
+                                                                      InkWell(
+                                                                        onTap:
+                                                                            () {
+
+                                                                          setState(() {
+                                                                            fotoEvidencia = false;
+                                                                            fotoRegistro = true;
+                                                                          });
+                                                                        },
+                                                                        child:
+                                                                        Padding(
+                                                                          padding:
+                                                                          const EdgeInsets.all(2.0),
+                                                                          child:
+                                                                          Icon(
+                                                                            Icons
+                                                                                .close_rounded,
+                                                                            color:
+                                                                            Colors.white,
+                                                                            size:
+                                                                            18,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+                                                    SizedBox(height: 10,),
+                                                    Row(
+                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      children: [
+                                                        Icon(Icons.camera_alt, size: 18, color: Color(0XFF006DB5),),
+                                                        SizedBox(width: 6,),
+                                                        Text("Evidencia 1", style: TextStyle(color: Color(0XFF505154), fontWeight: FontWeight.w500),)
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                              )
+                                                  : Text(""),
+
+
+                                              //img Registrar Evidencia
+                                              Visibility(
+                                                visible: fotoRegistro,
+                                                child: DottedBorder(
+                                                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                                                  color: Color(0xffADC22F),
+                                                  radius: Radius.circular(10.0),
+                                                  strokeWidth: 2,
+                                                  dashPattern: [10, 5],
+                                                  customPath: (size) {
+                                                    return Path()
+                                                      ..moveTo(10, 0)
+                                                      ..lineTo(size.width - 10, 0)
+                                                      ..arcToPoint(
+                                                          Offset(size.width, 10),
+                                                          radius: Radius.circular(10))
+                                                      ..lineTo(size.width,
+                                                          size.height - 10)
+                                                      ..arcToPoint(
+                                                          Offset(size.width - 10,
+                                                              size.height),
+                                                          radius: Radius.circular(10))
+                                                      ..lineTo(10, size.height)
+                                                      ..arcToPoint(
+                                                          Offset(0, size.height - 10),
+                                                          radius: Radius.circular(10))
+                                                      ..lineTo(0, 10)
+                                                      ..arcToPoint(Offset(10, 0),
+                                                          radius:
+                                                          Radius.circular(10));
+                                                  },
+                                                  child: Visibility(
+                                                    visible: true,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                5.0) //
+                                                        ),
+                                                      ),
+                                                      padding: EdgeInsets.all(16.0),
+                                                      child: Column(
+                                                        children: [
+                                                          Image.asset(
+                                                            'assets/images/subir_Evidencia_2.png',
+                                                            width: 90,
+                                                            height: 65,
+                                                          ),
+                                                          SizedBox(
+                                                            height: 10,
+                                                          ),
+                                                          Text(
+                                                            "Evidencia 1",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                FontWeight.w500,
+                                                                fontSize: 12,
+                                                                color: Colors.grey),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+
+                                            ],
+                                          )
+                                      ),
+
+                                    ),
+
+
+
+                                    SizedBox(height: 7,),
+                                    Divider(height: 30, thickness: 1.5,),
+                                    SizedBox(height: 7,),
 
 
 
 
 // Segunda Evidencia
 
-                              InkWell(
-                                onTap: (){
-                                  myAlert2();
-                                },
-                                child: Container(
-                                    child: Column(
-                                      children: [
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        image2 != null
-                                            ?    //IMG foto tomada / galeria
-                                        Visibility(
-                                          visible : fotoEvidencia2,
+                                    InkWell(
+                                      onTap: (){
+                                        myAlert2();
+                                      },
+                                      child: Container(
                                           child: Column(
                                             children: [
-                                              DottedBorder(
-                                                padding:
-                                                EdgeInsets.all(4.0),
-                                                color: Color(0xffADC22F),
-                                                radius:
-                                                Radius.circular(10.0),
-                                                strokeWidth: 2,
-                                                dashPattern: [10, 5],
-                                                customPath: (size) {
-                                                  return Path()
-                                                    ..moveTo(10, 0)
-                                                    ..lineTo(
-                                                        size.width - 10, 0)
-                                                    ..arcToPoint(
-                                                        Offset(
-                                                            size.width, 10),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10))
-                                                    ..lineTo(size.width,
-                                                        size.height - 10)
-                                                    ..arcToPoint(
-                                                        Offset(
-                                                            size.width - 10,
-                                                            size.height),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10))
-                                                    ..lineTo(
-                                                        10, size.height)
-                                                    ..arcToPoint(
-                                                        Offset(
-                                                            0,
-                                                            size.height -
-                                                                10),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10))
-                                                    ..lineTo(0, 10)
-                                                    ..arcToPoint(
-                                                        Offset(10, 0),
-                                                        radius:
-                                                        Radius.circular(
-                                                            10));
-                                                },
-                                                child: ClipRRect(
-                                                  //
-                                                  borderRadius:
-                                                  BorderRadius.circular(
-                                                      8),
-                                                  child: Padding(
-                                                    padding:
-                                                    const EdgeInsets
-                                                        .all(8.0),
-                                                    child: Stack(
-                                                      children: <Widget>[
-                                                        Image.file(
-                                                          File(image2!.path),
-                                                          fit: BoxFit.fill,
-                                                          //   width: MediaQuery.of(context).size.width,
-                                                          //  height: 170,
-                                                        ),
-                                                        Positioned(
-                                                          top: 0,
-                                                          right: 0,
-                                                          child:
-                                                          GestureDetector(
-                                                            onTap: () {
-                                                              print(
-                                                                  'Eliminar imagen');
-                                                              setState(() {
-                                                                print(
-                                                                    'set new state of images');
-                                                              });
-                                                            },
-                                                            child: Padding(
-                                                              padding:
-                                                              const EdgeInsets
-                                                                  .all(
-                                                                  8.0),
-                                                              child:
-                                                              Container(
-                                                                decoration:
-                                                                BoxDecoration(
-                                                                  color: Color(
-                                                                      0xff006DB5),
-                                                                  border: Border.all(
-                                                                      width:
-                                                                      2,
-                                                                      color:
-                                                                      Colors.white),
-                                                                  borderRadius: BorderRadius.only(
-                                                                      topRight: Radius.circular(
-                                                                          40.0),
-                                                                      bottomRight: Radius.circular(
-                                                                          40.0),
-                                                                      topLeft: Radius.circular(
-                                                                          40.0),
-                                                                      bottomLeft:
-                                                                      Radius.circular(40.0)),
-                                                                ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              image2 != null
+                                                  ?    //IMG foto tomada / galeria
+                                              Visibility(
+                                                visible : fotoEvidencia2,
+                                                child: Column(
+                                                  children: [
+                                                    DottedBorder(
+                                                      padding:
+                                                      EdgeInsets.all(4.0),
+                                                      color: Color(0xffADC22F),
+                                                      radius:
+                                                      Radius.circular(10.0),
+                                                      strokeWidth: 2,
+                                                      dashPattern: [10, 5],
+                                                      customPath: (size) {
+                                                        return Path()
+                                                          ..moveTo(10, 0)
+                                                          ..lineTo(
+                                                              size.width - 10, 0)
+                                                          ..arcToPoint(
+                                                              Offset(
+                                                                  size.width, 10),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10))
+                                                          ..lineTo(size.width,
+                                                              size.height - 10)
+                                                          ..arcToPoint(
+                                                              Offset(
+                                                                  size.width - 10,
+                                                                  size.height),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10))
+                                                          ..lineTo(
+                                                              10, size.height)
+                                                          ..arcToPoint(
+                                                              Offset(
+                                                                  0,
+                                                                  size.height -
+                                                                      10),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10))
+                                                          ..lineTo(0, 10)
+                                                          ..arcToPoint(
+                                                              Offset(10, 0),
+                                                              radius:
+                                                              Radius.circular(
+                                                                  10));
+                                                      },
+                                                      child: ClipRRect(
+                                                        //
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                        child: Padding(
+                                                          padding:
+                                                          const EdgeInsets
+                                                              .all(8.0),
+                                                          child: Stack(
+                                                            children: <Widget>[
+                                                              Image.file(
+                                                                File(image2!.path),
+                                                                fit: BoxFit.fill,
+                                                                //   width: MediaQuery.of(context).size.width,
+                                                                //  height: 170,
+                                                              ),
+                                                              Positioned(
+                                                                top: 0,
+                                                                right: 0,
                                                                 child:
-                                                                InkWell(
-                                                                  onTap:
-                                                                      () {
-                                                                        setState(() {
-                                                                          fotoEvidencia2 = false;
-                                                                          fotoRegistro2 = true;
-                                                                        });
+                                                                GestureDetector(
+                                                                  onTap: () {
+                                                                    print(
+                                                                        'Eliminar imagen');
+                                                                    setState(() {
+                                                                      print(
+                                                                          'set new state of images');
+                                                                    });
                                                                   },
-                                                                  child:
-                                                                  Padding(
+                                                                  child: Padding(
                                                                     padding:
-                                                                    const EdgeInsets.all(2.0),
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                        8.0),
                                                                     child:
-                                                                    Icon(
-                                                                      Icons
-                                                                          .close_rounded,
-                                                                      color:
-                                                                      Colors.white,
-                                                                      size:
-                                                                      18,
+                                                                    Container(
+                                                                      decoration:
+                                                                      BoxDecoration(
+                                                                        color: Color(
+                                                                            0xff006DB5),
+                                                                        border: Border.all(
+                                                                            width:
+                                                                            2,
+                                                                            color:
+                                                                            Colors.white),
+                                                                        borderRadius: BorderRadius.only(
+                                                                            topRight: Radius.circular(
+                                                                                40.0),
+                                                                            bottomRight: Radius.circular(
+                                                                                40.0),
+                                                                            topLeft: Radius.circular(
+                                                                                40.0),
+                                                                            bottomLeft:
+                                                                            Radius.circular(40.0)),
+                                                                      ),
+                                                                      child:
+                                                                      InkWell(
+                                                                        onTap:
+                                                                            () {
+                                                                          setState(() {
+                                                                            fotoEvidencia2 = false;
+                                                                            fotoRegistro2 = true;
+                                                                          });
+                                                                        },
+                                                                        child:
+                                                                        Padding(
+                                                                          padding:
+                                                                          const EdgeInsets.all(2.0),
+                                                                          child:
+                                                                          Icon(
+                                                                            Icons
+                                                                                .close_rounded,
+                                                                            color:
+                                                                            Colors.white,
+                                                                            size:
+                                                                            18,
+                                                                          ),
+                                                                        ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ),
+                                                            ],
                                                           ),
                                                         ),
+                                                      ),
+                                                    ),
+
+                                                    SizedBox(height: 10,),
+                                                    Row(
+                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      children: [
+                                                        Icon(Icons.camera_alt, size: 18, color: Color(0XFF006DB5),),
+                                                        SizedBox(width: 6,),
+                                                        Text("Evidencia 2", style: TextStyle(color: Color(0XFF505154), fontWeight: FontWeight.w500),)
                                                       ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-
-                                              SizedBox(height: 10,),
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(Icons.camera_alt, size: 18, color: Color(0XFF006DB5),),
-                                                  SizedBox(width: 6,),
-                                                  Text("Evidencia 2", style: TextStyle(color: Color(0XFF505154), fontWeight: FontWeight.w500),)
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                            : Text(""),
-                                        //img Registrar Evidencia
-                                        Visibility(
-                                          visible: fotoRegistro2,
-                                          child: DottedBorder(
-                                            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                                            color: Color(0xffADC22F),
-                                            radius: Radius.circular(10.0),
-                                            strokeWidth: 2,
-                                            dashPattern: [10, 5],
-                                            customPath: (size) {
-                                              return Path()
-                                                ..moveTo(10, 0)
-                                                ..lineTo(size.width - 10, 0)
-                                                ..arcToPoint(
-                                                    Offset(size.width, 10),
-                                                    radius: Radius.circular(10))
-                                                ..lineTo(size.width,
-                                                    size.height - 10)
-                                                ..arcToPoint(
-                                                    Offset(size.width - 10,
-                                                        size.height),
-                                                    radius: Radius.circular(10))
-                                                ..lineTo(10, size.height)
-                                                ..arcToPoint(
-                                                    Offset(0, size.height - 10),
-                                                    radius: Radius.circular(10))
-                                                ..lineTo(0, 10)
-                                                ..arcToPoint(Offset(10, 0),
-                                                    radius:
-                                                    Radius.circular(10));
-                                            },
-                                            child: Visibility(
-                                              visible: true,
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                  BorderRadius.all(
-                                                      Radius.circular(
-                                                          5.0) //
-                                                  ),
-                                                ),
-                                                padding: EdgeInsets.all(16.0),
-                                                child: Column(
-                                                  children: [
-                                                    Image.asset(
-                                                      'assets/images/subir_Evidencia_2.png',
-                                                      width: 90,
-                                                      height: 65,
-                                                    ),
-                                                    SizedBox(
-                                                      height: 10,
-                                                    ),
-                                                    Text(
-                                                      "Evidencia 2",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                          FontWeight.w500,
-                                                          fontSize: 12,
-                                                          color: Colors.grey),
                                                     )
-
                                                   ],
                                                 ),
+                                              )
+                                                  : Text(""),
+                                              //img Registrar Evidencia
+                                              Visibility(
+                                                visible: fotoRegistro2,
+                                                child: DottedBorder(
+                                                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                                                  color: Color(0xffADC22F),
+                                                  radius: Radius.circular(10.0),
+                                                  strokeWidth: 2,
+                                                  dashPattern: [10, 5],
+                                                  customPath: (size) {
+                                                    return Path()
+                                                      ..moveTo(10, 0)
+                                                      ..lineTo(size.width - 10, 0)
+                                                      ..arcToPoint(
+                                                          Offset(size.width, 10),
+                                                          radius: Radius.circular(10))
+                                                      ..lineTo(size.width,
+                                                          size.height - 10)
+                                                      ..arcToPoint(
+                                                          Offset(size.width - 10,
+                                                              size.height),
+                                                          radius: Radius.circular(10))
+                                                      ..lineTo(10, size.height)
+                                                      ..arcToPoint(
+                                                          Offset(0, size.height - 10),
+                                                          radius: Radius.circular(10))
+                                                      ..lineTo(0, 10)
+                                                      ..arcToPoint(Offset(10, 0),
+                                                          radius:
+                                                          Radius.circular(10));
+                                                  },
+                                                  child: Visibility(
+                                                    visible: true,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                5.0) //
+                                                        ),
+                                                      ),
+                                                      padding: EdgeInsets.all(16.0),
+                                                      child: Column(
+                                                        children: [
+                                                          Image.asset(
+                                                            'assets/images/subir_Evidencia_2.png',
+                                                            width: 90,
+                                                            height: 65,
+                                                          ),
+                                                          SizedBox(
+                                                            height: 10,
+                                                          ),
+                                                          Text(
+                                                            "Evidencia 2",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                FontWeight.w500,
+                                                                fontSize: 12,
+                                                                color: Colors.grey),
+                                                          )
+
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
                                               ),
-                                            ),
-                                          ),
-                                        ),
 
-                                      ],
-                                    )
-                                ),
+                                            ],
+                                          )
+                                      ),
 
-                              ),
+                                    ),
 
-                              SizedBox(height: 16,),
-                            ],
-                          )
+                                    SizedBox(height: 16,),
+                                  ],
+                                )
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
+                    )
+
                   ],
                 ),
-              )
+              ),
+
             ],
           ),
         ),
